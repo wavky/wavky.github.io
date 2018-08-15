@@ -46,7 +46,7 @@
     
     <title>
         
-            归档 | 
+            使用Hexo写博客 | 
         
         故事屋
     </title>
@@ -57,7 +57,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="姑且先试试用Hexo做个GitHub主页">
-    <meta name="keywords" content="Wavky">
+    <meta name="keywords" content="Wavky,Hexo">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -84,6 +84,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?xkbCsBiGJUb2hili3oVTDQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tranquil-heart.min.css?ul3p9I9MsbOxK0L+BHzDDg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -239,7 +242,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="故事屋">
-    <meta name="msapplication-starturl" content="https://story.wavky.com/archives/">
+    <meta name="msapplication-starturl" content="https://story.wavky.com/2018/08/15/使用Hexo写博客/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="故事屋">
@@ -254,13 +257,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://story.wavky.com/archives/">
+    <meta property="og:url" content="https://story.wavky.com/2018/08/15/使用Hexo写博客/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | 故事屋">
+    <meta property="og:title" content="使用Hexo写博客 | 故事屋">
     <meta property="og:image" content="/img/custom/black_cat.png">
     <meta property="og:description" content="姑且先试试用Hexo做个GitHub主页">
-    
+    <meta property="og:article:tag" content="Hexo"> 
 
+    
+        <meta property="article:published_time" content="Wed Aug 15 2018 16:47:00 GMT+0900">
+        <meta property="article:modified_time" content="Wed Aug 15 2018 22:59:55 GMT+0900">
     
 
     <!-- The Twitter Card protocol -->
@@ -268,13 +274,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://story.wavky.com/archives/index.html" />
+        <link rel="canonical" href="https://story.wavky.com/2018/08/15/使用Hexo写博客/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://story.wavky.com/2018/08/15/使用Hexo写博客/index.html",
+    "headline": "使用Hexo写博客",
+    "datePublished": "Wed Aug 15 2018 16:47:00 GMT+0900",
+    "dateModified": "Wed Aug 15 2018 22:59:55 GMT+0900",
+    "author": {
+        "@type": "Person",
+        "name": "Wavky Huang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/custom/avatar.jpg"
+        },
+        "description": "月が綺麗です"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "故事屋",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/custom/black_cat.png"
+        }
+    },
+    "keywords": ",HexoWavky",
+    "description": "姑且先试试用Hexo做个GitHub主页",
+}
+</script>
 
 
     
@@ -308,295 +344,277 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用Hexo写博客"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用Hexo写博客</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原生方式新建文章"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">原生方式新建文章</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于图片素材"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">关于图片素材</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-Hexo-Admin-插件"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">使用 Hexo Admin 插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用方法"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">使用方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不足之处"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">不足之处</span></a></li></ol></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 27 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/08/16/Hexo-Material主题之-footer-SNS定制/">Hexo Material主题之 footer SNS定制</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Hexo  Material主题之 footer SNS定制需求老板：给我来一份这个👆
-坑啊Material主题预设了相当多的SNS入口，只需要在配置文件中填入对应的网址就会自动启用。然而这里没我想要的简书和博客园，怎么办？！（嗯..似乎这两个也不是什么SNS虽然..)
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/08/16/Hexo-Material主题之-footer-SNS定制/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/custom/avatar.jpg" width="44px" height="44px" alt="Wavky Huang's avatar">
-            </div>
-            <div>
-                <strong>Wavky Huang</strong>
-                <span>8月 16, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Develop/">Develop</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/08/15/Hexo之我的桌角女友的食用方式/">Hexo之我的桌角女友的食用方式</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            秀秀
-通过使用一个名为 hexo-helper-live2d 的开源库，可以轻松的在自己的Hexo网站下贴上一只生猛可爱的萌妹子或主子：
-
-什么是live2dLive2d是11区宅男们开发出的虚拟女友育成技术，毕。（大雾）
-就...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/08/15/Hexo之我的桌角女友的食用方式/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/custom/avatar.jpg" width="44px" height="44px" alt="Wavky Huang's avatar">
-            </div>
-            <div>
-                <strong>Wavky Huang</strong>
-                <span>8月 15, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Develop/">Develop</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/08/15/使用Hexo写博客/">使用Hexo写博客</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            使用Hexo写博客首先，你需要搭建一个Hexo博客网站…使用Hexo搭建GitHub博客（2018年Mac版）
-原生方式新建文章Hexo的项目结构是在网站根目录的source/_posts目录下存放你的博客文档，以.md文档格式存储，默认已存在一个hello-world.md文章
-新建文章可用Hexo命令创建：
-hexo new &lt;title&gt;
-...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/08/15/使用Hexo写博客/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/custom/avatar.jpg" width="44px" height="44px" alt="Wavky Huang's avatar">
-            </div>
-            <div>
-                <strong>Wavky Huang</strong>
-                <span>8月 15, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Develop/">Develop</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="/images/pasted-0.png">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/">使用Hexo搭建GitHub博客（2018年Mac版）</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-关于本文本文仅记录自己学习搭建Hexo博客之时，搭建过程中掉坑的历程总结，对零基础起步的观众朋友可能缺乏某些基础技术的指导，请优先食用下述两篇优质教程：
-
-【2018更新】小白独立搭建博客—Github Pages和Hexo简明教程 - Ryane的个人页面 - 开源中国
-GitHub+Hexo 搭建个人网站详细教程
-
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/custom/avatar.jpg" width="44px" height="44px" alt="Wavky Huang's avatar">
-            </div>
-            <div>
-                <strong>Wavky Huang</strong>
-                <span>8月 15, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Develop/">Develop</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 27 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random-cat/Kitty-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random-cat/Kitty-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                使用Hexo写博客
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/custom/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Wavky Huang</strong>
+        <span>8月 15, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC1klEQVR42u3aS27jMBAFQN//0pntADNW3mNHsU0WV4YsSCwaSKc/j68j1wMbGxsbGxsbGxv7LdmPeP19/38e+uT+62///Xz9nLU9Y2NjY5/A/uZP/3hzd3yb7xkbGxv7HPZamHl2T7KtZ89JwmG+H2xsbGzsNv1oE5tr2PWxYmNjY2PfHcDaQlWSfmBjY2Njzws0URGnDF1JGHtZLQ0bGxv77dlrjd7Xfn5ZfxsbGxv7zdhr6zpcTRoD18jRnrGxsbE3ZecpRDKmMxn3ua/pi42Njb03e1JOyg8ib9zme6gbDNjY2NgHsH+qxL8W3pK2wfXzi0YvNjY29tbsJCxdJwZz/FoQ/WZv2NjY2Juy7yvuJElIm5asPRMbGxv7HPbaFtdK9vk9yQ6jw8LGxsbelJ03d5OiT3Kg8/ZtPoiJjY2NfQI7CVptqGuRawWj9sfAxsbG3pudv2BSkMqPrw1sURsYGxsbe1N23lh9xCs/1vbOSWsZGxsb+xx2W8rJQ0t+iG37ITogbGxs7E3ZSbLRNn3bdmxe2EpCLDY2NvZp7DwgtdvNGwNrYz1t4wEbGxv7BHZ+PQlOkzJTUfSftAewsbGxN2JPCj15GWitCNWWlupaGjY2NvaHs5N/4ttkIC8Srb09b2BgY2Njn8BuC0xtmtEeR35AdcsBGxsbe1N2Oy6z1lpIWsLtYGXSwMDGxsY+jd2Wlr6ClQe5hDRpEmBjY2Pvzc4L7mtbnISfeSsCGxsb+0x2W/ppB3HyJkQeVrGxsbHPZLerHpQZX7l9+BIbGxv7w9ntCE7++jxErY141kEXGxsbe2t2G7TyjbbIPOXAxsbGxm5JbVF+LXn4qeOIUhFsbGxs7GAE547RnDboYmNjY2O34aptxE4GPX8pFcHGxsb+EHYRDPIEIB+pKQd68ivY2NjYJ7Anjd550ScPeHnqgo2NjX0O+5yFjY2NjY2NjY2N/TbrD4Wpmt1xNM8LAAAAAElFTkSuQmCC">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Hexo/">Hexo</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=使用Hexo写博客&url=https://story.wavky.com/2018/08/15/使用Hexo写博客/index.html&via=Wavky Huang" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://story.wavky.com/2018/08/15/使用Hexo写博客/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://story.wavky.com/2018/08/15/使用Hexo写博客/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://story.wavky.com/2018/08/15/使用Hexo写博客/index.html&title=使用Hexo写博客" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=故事屋&title=使用Hexo写博客&summary=姑且先试试用Hexo做个GitHub主页&pics=https://story.wavky.com/img/custom/favicon.ico&url=https://story.wavky.com/2018/08/15/使用Hexo写博客/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="使用Hexo写博客"><a href="#使用Hexo写博客" class="headerlink" title="使用Hexo写博客"></a>使用Hexo写博客</h1><p>首先，你需要搭建一个Hexo博客网站…<br><a href="/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/">使用Hexo搭建GitHub博客（2018年Mac版）</a></p>
+<h2 id="原生方式新建文章"><a href="#原生方式新建文章" class="headerlink" title="原生方式新建文章"></a>原生方式新建文章</h2><p>Hexo的项目结构是在网站根目录的source/_posts目录下存放你的博客文档，以.md文档格式存储，默认已存在一个hello-world.md文章<br><img src="/images/pasted-10.png" alt=""></p>
+<p>新建文章可用Hexo命令创建：</p>
+<pre><code class="bash">hexo new &lt;title&gt;
+</code></pre>
+<p>也可以指定一个layout属性，指定文章作为其他形式存放在别的目录，例如page新页面、draft草稿等。详细参考 <a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">写作 | Hexo</a></p>
+<p>新建的文章除了标准Markdown语法外，也支持一些增强功能的标签代码段，用于插入视频、引用、限定尺寸图片等。<br><a href="https://hexo.io/zh-cn/docs/tag-plugins" target="_blank" rel="noopener">标签插件（Tag Plugins） | Hexo</a></p>
+<h3 id="关于图片素材"><a href="#关于图片素材" class="headerlink" title="关于图片素材"></a>关于图片素材</h3><p>图片素材按官方教程说法，可统一放置在source/images目录中，并以 <code>![](/images/image.jpg)</code> 方式引用</p>
+<p>或者在 _config.yml 打开 post_asset_folder 功能，将当前文章所用的图片放置到source目录下的文章同名资源目录下，以 <code>![](image.jpg)</code> 方式引用</p>
+<p>另外一些文章中提到建议使用第三方的专业图床来存放这些静态图片素材 🧐</p>
+<h2 id="使用-Hexo-Admin-插件"><a href="#使用-Hexo-Admin-插件" class="headerlink" title="使用 Hexo Admin 插件"></a>使用 Hexo Admin 插件</h2><p><a href="https://github.com/jaredly/hexo-admin" target="_blank" rel="noopener">Hexo Admin</a> 是一个本地在线式文章管理器，可以用直观可视化的方式新建、编辑博客文章、page页面，添加标签、分类等，并且支持剪贴板粘贴图片（自动在source/images/目录中创建文件）<br><img src="/images/pasted-11.png" alt=""></p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ol>
+<li><p>在Hexo网站目录下，安装 Hexo Admin 插件</p>
+<pre><code class="bash">npm install --save hexo-admin
+</code></pre>
+</li>
+<li><p>启动本地服务器并打开管理界面，即可使用</p>
+<pre><code class="bash">hexo server -d
+open http://localhost:4000/admin/
+</code></pre>
+</li>
+</ol>
+<h3 id="不足之处"><a href="#不足之处" class="headerlink" title="不足之处"></a>不足之处</h3><p>Hexo Admin 暂时并不支持按 _config.yml 中设定的 new_post_name 属性命名新建的文章，似乎也不支持 post_asset_folder 作为图像文件夹（该功能在2周前被提出issue，但管理员表示无意开发 😂）</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            本文由 Wavky 原创，采用 <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh' target='_blank'>保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="https://story.wavky.com/2018/08/15/使用Hexo写博客/">https://story.wavky.com/2018/08/15/使用Hexo写博客/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/08/15/Hexo之我的桌角女友的食用方式/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -942,6 +960,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -954,6 +976,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     

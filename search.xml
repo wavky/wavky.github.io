@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>Hexo Material主题之 footer SNS定制</title>
+      <link href="/2018/08/16/Hexo-Material%E4%B8%BB%E9%A2%98%E4%B9%8B-footer-SNS%E5%AE%9A%E5%88%B6/"/>
+      <url>/2018/08/16/Hexo-Material%E4%B8%BB%E9%A2%98%E4%B9%8B-footer-SNS%E5%AE%9A%E5%88%B6/</url>
+      <content type="html"><![CDATA[<h1 id="Hexo-Material主题之-footer-SNS定制"><a href="#Hexo-Material主题之-footer-SNS定制" class="headerlink" title="Hexo  Material主题之 footer SNS定制"></a>Hexo  Material主题之 footer SNS定制</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p><img src="/images/pasted-14.png" alt=""><br>老板：给我来一份这个👆</p><h2 id="坑啊"><a href="#坑啊" class="headerlink" title="坑啊"></a>坑啊</h2><p>Material主题预设了相当多的SNS入口，只需要在配置文件中填入对应的网址就会自动启用。然而这里没我想要的简书和博客园，怎么办？！（嗯..似乎这两个也不是什么SNS虽然..)</p><p><a href="https://material.viosey.com/docs/#/config_style?id=img" target="_blank" rel="noopener">官方指南</a> 中曾提及到配置文档中一个名为 <code>footerico</code> 的参数，用于指定footer中的SNS图标路径，然而在下载到的最新版1.5.6 Material 主题配置文件模板中并未发现这个字段..😓</p><p>经过多次测试发现，当前版本似乎并不支持自定义这个SNS图标路径，也不支持通过配置文件扩展想要追加的“SNS”入口（更直接一点，甚至连 themes/material/source/img/footer 这个目录也是假的，把里面的图标改了都不影响主题默认的SNS图标样式🤣</p><h2 id="搬砖之路"><a href="#搬砖之路" class="headerlink" title="搬砖之路"></a>搬砖之路</h2><p>机缘(JI) 巧合(ZHI) 之下，我选择了去主题仓库的 <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" rel="noopener">Issues</a> 里面找找蛛丝马迹，果真找到了一条 <a href="https://github.com/viosey/hexo-theme-material/pull/590" target="_blank" rel="noopener">footer 中 增加 segmentfault 入口</a> 的功能合并报告，追查之下抵达了实现这个功能的<a href="https://github.com/viosey/hexo-theme-material/commit/9cbacc2515fd0ab635d9e3c2e1bae3ce45d941f6" target="_blank" rel="noopener">代码提交部分</a>，故事从此发生转机——</p><p>按照上古卷轴的指引，我们发现要实现自定义扩展 footer 的 SNS 入口非常简单，只需要下载一个图标，并更改3个文件的一小段代码（其实应该2个也应该足够了）👉</p><ol><li><p>下载你想要的按钮图标的矢量文件，推荐一个网站 <a href="http://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2" target="_blank" rel="noopener">Iconfont-阿里妈妈矢量图标库</a><br>使用GitHub账号登录即可下载，下载格式一定要选 SVG 格式，尺寸选择48像素<br><img src="/images/pasted-15.png" alt=""><br>用Atom或VScode打开已经下载的文件，找到里面的 svg 标签，完整摘取出来备用<br><img src="/images/pasted-16.png" alt=""></p></li><li><p>themes/material/layout/_partial/footer-left.ejs</p><pre><code class="ejs">&lt;!-- 这里追加一段需要添加的SNS入口，插入的位置就是在 footer 中的SNS出现顺序位置 --&gt;&lt;!-- 这里以简书为例，所有 jianshu 关键字换成你需要的名字 --&gt; &lt;!-- Jianshu --&gt; &lt;% if(theme.sns.jianshu) { %&gt;     &lt;a href=&quot;&lt;%= theme.sns.jianshu %&gt;&quot; target=&quot;_blank&quot;&gt;         &lt;button class=&quot;mdl-mini-footer--social-btn social-btn footer-sns-jianshu&quot;&gt;             &lt;span class=&quot;visuallyhidden&quot;&gt;Jianshu&lt;/span&gt;         &lt;/button&gt;&lt;!--  --&gt;&lt;/a&gt; &lt;% } %&gt;</code></pre></li><li><p>themes/material/source/css/style.css</p><pre><code class="css">&lt;!-- 在文件末尾追加一段css样式，定义SNS图标 --&gt;&lt;!-- jianshu 关键字换成你需要的名字 --&gt;.footer-sns-jianshu { background: url(&#39;data:image/svg+xml;utf8, &lt;svg....&gt;&#39;);}&lt;!-- 上面的 svg 标签，使用第1步中新鲜摘取的 svg 整段覆盖上来 --&gt;</code></pre></li><li><p>将第3步完成的 style.css 内容全部copy，放到 <a href="https://tool.lu/css/" target="_blank" rel="noopener">Css在线解压缩/整理/格式化 - 在线工具</a> 中进行css压缩，并贴到 themes/material/source/css/style.min.css 中（实际上这个才是最后会用到的 style 文件）</p></li><li><p>在主题配置文件 _config.yml 中，找到 SNS 部分，增加你需要的入口名称（跟上面的更改名字对应）<br><img src="/images/pasted-17.png" alt=""></p></li><li><p>刷新博客页面，应该可以出来了</p></li></ol>]]></content>
+      
+      <categories>
+          
+          <category> Develop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Hexo之我的桌角女友的食用方式</title>
+      <link href="/2018/08/15/Hexo%E4%B9%8B%E6%88%91%E7%9A%84%E6%A1%8C%E8%A7%92%E5%A5%B3%E5%8F%8B%E7%9A%84%E9%A3%9F%E7%94%A8%E6%96%B9%E5%BC%8F/"/>
+      <url>/2018/08/15/Hexo%E4%B9%8B%E6%88%91%E7%9A%84%E6%A1%8C%E8%A7%92%E5%A5%B3%E5%8F%8B%E7%9A%84%E9%A3%9F%E7%94%A8%E6%96%B9%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<h2 id="秀秀"><a href="#秀秀" class="headerlink" title="秀秀"></a>秀秀</h2><p><img src="/images/pasted-12.png" alt="upload successful"></p><p>通过使用一个名为 <a href="https://github.com/EYHN/hexo-helper-live2d" target="_blank" rel="noopener">hexo-helper-live2d</a> 的开源库，可以轻松的在自己的Hexo网站下贴上一只生猛可爱的萌妹子或主子：</p><p><img src="/images/pasted-13.png" alt="upload successful"></p><h2 id="什么是live2d"><a href="#什么是live2d" class="headerlink" title="什么是live2d"></a>什么是live2d</h2><p>Live2d是11区宅男们开发出的虚拟女友育成技术，毕。（大雾）</p><p>就如知乎上所述的，live2d是通过连续的图像连接成一张相对随机实时变化的动画，可以对光标位置进行动作交互反馈。目前在GalGame上的应用比较多。<br><a href="https://www.zhihu.com/question/28130936" target="_blank" rel="noopener">更专业的解释看这里 👉 如何看待live2D这项技术？ - 知乎</a></p><p><img src="http://docs.live2d.com/wp-content/uploads/2017/06/hy-pose-big.gif" alt=""></p><p>在11区的官网上可以看到油管的视频介绍：<br><a href="http://www.live2d.com/ja/about/whats_live2d" target="_blank" rel="noopener">Live2D ってなんだろう？ | Live2D</a><br><a href="http://www.live2d.com/ja/about" target="_blank" rel="noopener">Live2Dの特徴 | Live2D</a></p><h2 id="食用方式"><a href="#食用方式" class="headerlink" title="食用方式"></a>食用方式</h2><p>在Hexo网站上，只需要导入 <a href="https://github.com/EYHN/hexo-helper-live2d" target="_blank" rel="noopener">hexo-helper-live2d</a>  库，依据口味搭配喜欢的素材包，3分钟加热即可食用：</p><pre><code class="bash">npm install --save hexo-helper-live2d</code></pre><ol><li><p>在Hexo网站源码根目录上安装 hexo-helper-live2d 模块</p><pre><code class="bash">npm install --save hexo-helper-live2d</code></pre></li><li><p>（同一目录下）选择安装喜欢的素材包：</p><pre><code class="bash">npm install {packagename}# 例如：npm install live2d-widget-model-z16</code></pre></li></ol><p>目前可选的素材包列表：</p><ul><li>live2d-widget-model-chitose</li><li>live2d-widget-model-epsilon2_1</li><li>live2d-widget-model-gf</li><li>live2d-widget-model-haru/01 (use npm install –save live2d-widget-model-haru)</li><li>live2d-widget-model-haru/02 (use npm install –save live2d-widget-model-haru)</li><li>live2d-widget-model-haruto</li><li>live2d-widget-model-hibiki</li><li>live2d-widget-model-hijiki</li><li>live2d-widget-model-izumi</li><li>live2d-widget-model-koharu</li><li>live2d-widget-model-miku</li><li>live2d-widget-model-ni-j</li><li>live2d-widget-model-nico</li><li>live2d-widget-model-nietzsche</li><li>live2d-widget-model-nipsilon</li><li>live2d-widget-model-nito</li><li>live2d-widget-model-shizuku</li><li>live2d-widget-model-tororo</li><li>live2d-widget-model-tsumiki</li><li>live2d-widget-model-unitychan</li><li>live2d-widget-model-wanko</li><li>live2d-widget-model-z16</li></ul><p>各素材预览图如下：<br><a href="https://huaji8.top/post/live2d-plugin-2.0/" target="_blank" rel="noopener">素材预览</a></p><p>参阅：<br><a href="https://github.com/xiazeyu/live2d-widget-models" target="_blank" rel="noopener">GitHub - xiazeyu/live2d-widget-models</a><br><a href="http://sites.cybernoids.jp/cubism2/samples" target="_blank" rel="noopener">岛国官方素材DL - サンプルデータ集 - Live2D Cubism 2 マニュアル</a></p><ol start="3"><li>在网站配置文件或主题配置文件_config.yml中追加：<pre><code class="bash">live2d:# 固定写法，具体用途参阅下方文档enable: truescriptFrom: localpluginRootPath: live2dw/pluginJsPath: lib/pluginModelPath: assets/tagMode: falsedebug: falsemodel: # 这里根据已安装的素材包填写，如：live2d-widget-model-z16 use: live2d-widget-model-素材包名# 摆放位置display: position: right width: 150 height: 300mobile: show: true</code></pre></li></ol><p><a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md" target="_blank" rel="noopener">hexo-helper-live2d 中文文档看这里</a></p><ol start="4"><li>生成，预览<pre><code>hexo ghexo s</code></pre></li></ol>]]></content>
+      
+      <categories>
+          
+          <category> Develop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>使用Hexo写博客</title>
+      <link href="/2018/08/15/%E4%BD%BF%E7%94%A8Hexo%E5%86%99%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2018/08/15/%E4%BD%BF%E7%94%A8Hexo%E5%86%99%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<h1 id="使用Hexo写博客"><a href="#使用Hexo写博客" class="headerlink" title="使用Hexo写博客"></a>使用Hexo写博客</h1><p>首先，你需要搭建一个Hexo博客网站…<br><a href="/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/">使用Hexo搭建GitHub博客（2018年Mac版）</a></p><h2 id="原生方式新建文章"><a href="#原生方式新建文章" class="headerlink" title="原生方式新建文章"></a>原生方式新建文章</h2><p>Hexo的项目结构是在网站根目录的source/_posts目录下存放你的博客文档，以.md文档格式存储，默认已存在一个hello-world.md文章<br><img src="/images/pasted-10.png" alt=""></p><p>新建文章可用Hexo命令创建：</p><pre><code class="bash">hexo new &lt;title&gt;</code></pre><p>也可以指定一个layout属性，指定文章作为其他形式存放在别的目录，例如page新页面、draft草稿等。详细参考 <a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">写作 | Hexo</a></p><p>新建的文章除了标准Markdown语法外，也支持一些增强功能的标签代码段，用于插入视频、引用、限定尺寸图片等。<br><a href="https://hexo.io/zh-cn/docs/tag-plugins" target="_blank" rel="noopener">标签插件（Tag Plugins） | Hexo</a></p><h3 id="关于图片素材"><a href="#关于图片素材" class="headerlink" title="关于图片素材"></a>关于图片素材</h3><p>图片素材按官方教程说法，可统一放置在source/images目录中，并以 <code>![](/images/image.jpg)</code> 方式引用</p><p>或者在 _config.yml 打开 post_asset_folder 功能，将当前文章所用的图片放置到source目录下的文章同名资源目录下，以 <code>![](image.jpg)</code> 方式引用</p><p>另外一些文章中提到建议使用第三方的专业图床来存放这些静态图片素材 🧐</p><h2 id="使用-Hexo-Admin-插件"><a href="#使用-Hexo-Admin-插件" class="headerlink" title="使用 Hexo Admin 插件"></a>使用 Hexo Admin 插件</h2><p><a href="https://github.com/jaredly/hexo-admin" target="_blank" rel="noopener">Hexo Admin</a> 是一个本地在线式文章管理器，可以用直观可视化的方式新建、编辑博客文章、page页面，添加标签、分类等，并且支持剪贴板粘贴图片（自动在source/images/目录中创建文件）<br><img src="/images/pasted-11.png" alt=""></p><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ol><li><p>在Hexo网站目录下，安装 Hexo Admin 插件</p><pre><code class="bash">npm install --save hexo-admin</code></pre></li><li><p>启动本地服务器并打开管理界面，即可使用</p><pre><code class="bash">hexo server -dopen http://localhost:4000/admin/</code></pre></li></ol><h3 id="不足之处"><a href="#不足之处" class="headerlink" title="不足之处"></a>不足之处</h3><p>Hexo Admin 暂时并不支持按 _config.yml 中设定的 new_post_name 属性命名新建的文章，似乎也不支持 post_asset_folder 作为图像文件夹（该功能在2周前被提出issue，但管理员表示无意开发 😂）</p>]]></content>
+      
+      <categories>
+          
+          <category> Develop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>使用Hexo搭建GitHub博客（2018年Mac版）</title>
+      <link href="/2018/08/15/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BAGitHub%E5%8D%9A%E5%AE%A2%EF%BC%882018%E5%B9%B4Mac%E7%89%88%EF%BC%89/"/>
+      <url>/2018/08/15/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BAGitHub%E5%8D%9A%E5%AE%A2%EF%BC%882018%E5%B9%B4Mac%E7%89%88%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p><img src="/images/pasted-0.png" alt=""></p><h2 id="关于本文"><a href="#关于本文" class="headerlink" title="关于本文"></a>关于本文</h2><p>本文仅记录自己学习搭建Hexo博客之时，搭建过程中掉坑的历程总结，对零基础起步的观众朋友可能缺乏某些基础技术的指导，请优先食用下述两篇优质教程：</p><ul><li><a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="noopener">【2018更新】小白独立搭建博客—Github Pages和Hexo简明教程 - Ryane的个人页面 - 开源中国</a></li><li><a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a></li></ul><h2 id="十万个为什么"><a href="#十万个为什么" class="headerlink" title="十万个为什么"></a>十万个为什么</h2><h3 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h3><p>度娘谷歌搜索了Hexo各种资料解说，个人感觉上这是一套使用第三方主题模板+自己的博客文章（.md文件）+网站信息配置，通过Node.js进行本地连接混合生成一套静态网站的工具链套件</p><p>也就是说，通过Hexo创建的博客是一个仅提供在线浏览功能的静态博客，不存在后台编辑功能，添加新博客时需要在自己开发机上编写新博客文章（.md文件），再次生成一个新版本网站，上传并替换，从而实现新文章发布</p><p>优势是可使用网上各种免费的静态网站空间，节省服务器租金，省去维护服务器的工作，不需担心后台被黑导致数据丢失，无痛随时全站更换主题…</p><p>劣势是不能在公司电脑上随时在线更新博客，除非带着Hexo博客源码…</p><p>和需要自己保管好Hexo博客源码，否则数据丢了看上去有点难重新把博文整理下来</p><p><img src="/images/pasted-1.png" alt=""></p><h3 id="什么是Node-js"><a href="#什么是Node-js" class="headerlink" title="什么是Node.js"></a>什么是Node.js</h3><p>度娘谷歌搜索了Node.js各种资料解说，个人感觉上这就是一套SDK，一套使用JavaScript编写的，包含多个应用级功能模块，可用于一般应用开发的工具包</p><p>JavaScript的运行需要一个JS解释器实时运算每一句JavaScript代码，一般情况下网页上的JS代码段会使用浏览器提供的解释器运行，而Node.js使用了谷歌开源的一个名为V8引擎的良心产品（JS解释器），实现脱离浏览器下运行JavaScript代码</p><p><img src="/images/pasted-2.png" alt=""></p><h3 id="什么是nvm"><a href="#什么是nvm" class="headerlink" title="什么是nvm"></a>什么是nvm</h3><p>nvm，Node Version Manager 是一个开源的Node.js版本管理Bash工具，可方便的在Bash环境下下载、更新、管理多个版本并存的Node.js，并选择性地使用其中一个</p><p><img src="/images/pasted-3.png" alt=""></p><h3 id="什么是GitHub-Pages"><a href="#什么是GitHub-Pages" class="headerlink" title="什么是GitHub Pages"></a>什么是GitHub Pages</h3><p>GitHub Pages 是GitHub提供的个人静态主页网站托管服务，原目的是用于提供你在GitHub上托管的所有开源项目介绍，后来也推荐作为个人博客之类的用途</p><p>优势是使用简单方便，免费高效实时，可用空间高达1G，可绑定自定义域名，原生自带GitHub级别防护…好像无敌了</p><p><img src="/images/pasted-4.png" alt=""></p><p><a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages | Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and your changes are live.</a></p><h3 id="什么是…"><a href="#什么是…" class="headerlink" title="什么是…"></a>什么是…</h3><p><img src="/images/pasted-5.png" alt=""></p><h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><ul><li>已安装Git工具</li><li>已有GitHub账号</li><li>（Mac）已安装Xcode command line tools</li></ul><h2 id="安装nvm与Node-js"><a href="#安装nvm与Node-js" class="headerlink" title="安装nvm与Node.js"></a>安装nvm与Node.js</h2><p>参考我的另一篇文章 <a href="https://www.jianshu.com/p/c1b6c452a98a" target="_blank" rel="noopener">Node.js安装 - 简书</a></p><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><pre><code class="bash">npm install -g hexo-cli</code></pre><p>为了便于发布到GitHub上，建议同时安装<code>hexo-deployer-git</code></p><pre><code class="bash">npm install hexo-deployer-git --save</code></pre><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo安装文档</a></p><h2 id="初始化，建立博客项目"><a href="#初始化，建立博客项目" class="headerlink" title="初始化，建立博客项目"></a>初始化，建立博客项目</h2><p>选定博客网站项目程序文件的存放位置，如<code>~/develop/hexo/github/</code>，Bash中cd进入该目录下，执行命令：</p><pre><code class="bash">hexo init</code></pre><p>执行完毕后，该命令将在当前目录下生成一套标准的Hexo博客项目模板</p><h2 id="生成网站"><a href="#生成网站" class="headerlink" title="生成网站"></a>生成网站</h2><p>上面的操作只是生成了一套网站构成所需的“源代码”，实际发布时需要根据这套“源代码”当中的配置文件、博客文档（.md文件）、主题模板等，进行组合构建，生成服务器可识别的标准HTML网站目录，此时可使用该命令：</p><pre><code class="bash">hexo g</code></pre><p>执行完毕后，在<code>public</code>目录下可看到我们自己书写的博客文档（.md文件）与所选的博客主题模板链接组合，生成的最终静态网站文件，该目录也差不多就是之后发布到GitHub上的实际文件（实际发布到GitHub的是.deploy_git目录），外部的网站“源代码”不会上传到<code>github.io</code>库</p><h2 id="启动本地服务器"><a href="#启动本地服务器" class="headerlink" title="启动本地服务器"></a>启动本地服务器</h2><p>启动本地服务器可即时查看网站运行效果：</p><pre><code class="bash">hexo server</code></pre><p>默认地址是 <a href="http://localhost:4000/" target="_blank" rel="noopener">localhost:4000</a></p><h2 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h2><p>Hexo可随时使用、更换博客主题</p><p>主题文件可在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官方主题网页</a>中下载，以Material为例，点击主题预览图下方的主题名称链接即可进入该主题的源码发布页面 <a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="noopener">GitHub - viosey/hexo-theme-material: Material Design theme for hexo.</a></p><p><img src="/images/pasted-6.png" alt=""></p><p>根据主题安装指导，下载项目至博客项目下的<code>themes</code>目录中，文件夹命名为<code>material</code>，并在博客配置文件<code>_config.yml</code>中指定使用该主题：</p><pre><code class="yml">theme: material</code></pre><p>将material主题目录下的<code>_config.template.yaml</code>重命名为<code>_config.yaml</code></p><p>参考<a href="https://material.viosey.com/docs/#/" target="_blank" rel="noopener">Material主题文档</a>进行必要配置</p><p>再次执行 <code>hexo g</code> 将会根据新主题重新构建整个博客</p><p><strong>注意：</strong><br>Material 主题1.5.6版本在执行<code>hexo g</code>时会报出TypeError错误，可参考<a href="https://github.com/viosey/hexo-theme-material/issues/686" target="_blank" rel="noopener">Issue686</a>修改dnsprefetch.ejs文件解决</p><p>Material 主题中的 prettify 高亮颜色主题可在这个网站中预览：<br><a href="https://jmblog.github.io/color-themes-for-google-code-prettify/" target="_blank" rel="noopener">Color themes for Google Code Prettify</a></p><h2 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h2><h3 id="创建github-io仓库"><a href="#创建github-io仓库" class="headerlink" title="创建github.io仓库"></a>创建github.io仓库</h3><p>在自己的GitHub中，创建新仓库，标准命名为<code>GitHub用户名.github.io</code>，例如我的：wavky.github.io</p><p>仓库Readme、License之类的留空即可，之后在发布上传时会被强制覆盖抹掉</p><h3 id="配置SSH密钥"><a href="#配置SSH密钥" class="headerlink" title="配置SSH密钥"></a>配置SSH密钥</h3><p>参考 <a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="noopener">https://my.oschina.net/ryaneLee/blog/638440</a> 配置SSH密钥一节</p><h3 id="修改博客配置文件-config-yml"><a href="#修改博客配置文件-config-yml" class="headerlink" title="修改博客配置文件_config.yml"></a>修改博客配置文件<code>_config.yml</code></h3><pre><code class="yml">deploy:  type: git  repo: GitHub上传仓库的完整路径，如 https://github.com/wavky/wavky.github.io.git  branch: master</code></pre><h3 id="发布到GitHub"><a href="#发布到GitHub" class="headerlink" title="发布到GitHub"></a>发布到GitHub</h3><p>在<code>hexo g</code>生成完毕后，可执行该命令发布博客到GitHub上：</p><pre><code class="bash">hexo d</code></pre><p>或在生成网站的同时进行发布：</p><pre><code class="bash">hexo g -d</code></pre><h3 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h3><p>点击仓库页面中的GH Pages按钮，应该可以看到真正发布在互联网上的效果<br><img src="/images/pasted-7.png" alt=""></p><h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>GitHub Pages 默认提供的是 <code>GitHub用户名.github.io</code>（例如我的：wavky.github.io）作为博客访问地址，可设置绑定自定义域名</p><p>在博客项目目录的source文件夹中，创建一个CNAME文件，存储预备使用的个人域名，如：</p><pre><code class="bash"># 在source目录下echo story.wavky.com &gt; CNAME</code></pre><p>清理Hexo缓存并重新生成发布</p><pre><code class="bash">hexo cleanhexo g -d</code></pre><p>GitHub项目页面中Setting设置界面，滚到GitHub Pages部分确认域名无误<br><img src="/images/pasted-8.png" alt=""></p><p>在个人域名提供商（如阿里云万网）中，进入DNS设置界面，追加一条CNAME记录，这里我指定以story前缀的个人域名跳转到原来的默认的博客域名<code>wavky.github.io</code>，记录如下：<br><img src="/images/pasted-9.png" alt=""></p><p><strong>注：其他类型的域名绑定方式（例如IP指向等），在最后一步DNS设置中操作会不一样</strong></p><p>等待10分钟左右应该生效</p>]]></content>
+      
+      <categories>
+          
+          <category> Develop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
+    
+  
+</search>

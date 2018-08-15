@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://lib.baomitu.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            使用Hexo搭建GitHub博客（2018年Mac版） | 
+        
+        故事屋
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/custom/favicon.ico">
+    <link rel="icon" href="/img/custom/black_cat.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="姑且先试试用Hexo做个GitHub主页">
+    <meta name="keywords" content="Wavky,Hexo">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?xkbCsBiGJUb2hili3oVTDQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tranquil-heart.min.css?ul3p9I9MsbOxK0L+BHzDDg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #232835 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #232835 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #232835 !important;
+  }
+
+  .toTop {
+    background: #135D7B !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #135D7B;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #135D7B;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #135D7B;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/custom/bg.jpg);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <style>
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 300;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.svg#Roboto) format('svg')
+        }
+
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: regular;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.svg#Roboto) format('svg')
+        }
+
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.svg#Roboto) format('svg')
+        }
+    </style>
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="故事屋">
+    <meta name="msapplication-starturl" content="https://story.wavky.com/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="故事屋">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/custom/black_cat.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://story.wavky.com/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="使用Hexo搭建GitHub博客（2018年Mac版） | 故事屋">
+    <meta property="og:image" content="/img/custom/black_cat.png">
+    <meta property="og:description" content="姑且先试试用Hexo做个GitHub主页">
+    <meta property="og:article:tag" content="Hexo"> 
+
+    
+        <meta property="article:published_time" content="Wed Aug 15 2018 16:27:00 GMT+0900">
+        <meta property="article:modified_time" content="Wed Aug 15 2018 22:58:51 GMT+0900">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://story.wavky.com/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://story.wavky.com/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/index.html",
+    "headline": "使用Hexo搭建GitHub博客（2018年Mac版）",
+    "datePublished": "Wed Aug 15 2018 16:27:00 GMT+0900",
+    "dateModified": "Wed Aug 15 2018 22:58:51 GMT+0900",
+    "author": {
+        "@type": "Person",
+        "name": "Wavky Huang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/custom/avatar.jpg"
+        },
+        "description": "月が綺麗です"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "故事屋",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/custom/black_cat.png"
+        }
+    },
+    "keywords": ",HexoWavky",
+    "description": "姑且先试试用Hexo做个GitHub主页",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于本文"><span class="post-toc-number">1.</span> <span class="post-toc-text">关于本文</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十万个为什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">十万个为什么</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是Hexo"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">什么是Hexo</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是Node-js"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">什么是Node.js</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是nvm"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">什么是nvm</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是GitHub-Pages"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">什么是GitHub Pages</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是…"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">什么是…</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前提条件"><span class="post-toc-number">3.</span> <span class="post-toc-text">前提条件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装nvm与Node-js"><span class="post-toc-number">4.</span> <span class="post-toc-text">安装nvm与Node.js</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Hexo"><span class="post-toc-number">5.</span> <span class="post-toc-text">安装Hexo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#初始化，建立博客项目"><span class="post-toc-number">6.</span> <span class="post-toc-text">初始化，建立博客项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生成网站"><span class="post-toc-number">7.</span> <span class="post-toc-text">生成网站</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动本地服务器"><span class="post-toc-number">8.</span> <span class="post-toc-text">启动本地服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选择主题"><span class="post-toc-number">9.</span> <span class="post-toc-text">选择主题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#发布博客"><span class="post-toc-number">10.</span> <span class="post-toc-text">发布博客</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建github-io仓库"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">创建github.io仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置SSH密钥"><span class="post-toc-number">10.2.</span> <span class="post-toc-text">配置SSH密钥</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改博客配置文件-config-yml"><span class="post-toc-number">10.3.</span> <span class="post-toc-text">修改博客配置文件_config.yml</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发布到GitHub"><span class="post-toc-number">10.4.</span> <span class="post-toc-text">发布到GitHub</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看效果"><span class="post-toc-number">10.5.</span> <span class="post-toc-text">查看效果</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#绑定域名"><span class="post-toc-number">11.</span> <span class="post-toc-text">绑定域名</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/images/pasted-0.png)">
+    
+            <p class="article-headline-p">
+                使用Hexo搭建GitHub博客（2018年Mac版）
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/custom/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Wavky Huang</strong>
+        <span>8月 15, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADhElEQVR42u3aSW4jMRAEQP//0zNXA7blzCpSaAPBk6Clm4w+lGr5+Gd9Wh8IcODAgQMHDhw4cOB4MMdHvL650JdPv37z9XXa++6v9s2vcODAgQPHBY5fQtGhbb3+7ew7B86CAwcOHDiucWw2+nq7efB7HdrPguLAgQMHjudwbELd6/QveSe5Ow4cOHDg+Fscs2MnKV/C+tD/HThw4MCBY1RQy0t++8LfrOz41lopDhw4cOBYDzQ8//Vb5ztw4MCBA8cXjnadSsCSJlYedFcnwoEDBw4cRznyQLUHSo69SfOG+8eBAwcOHBc49oW5WRjeNLfaB/bjY8CBAwcOHJc52qDVUr6GqA8Th/O6VooDBw4cONYc7VFnSVcekjeNpbxkiQMHDhw4znK0wWxzmAQuJ8sH4365Jg4cOHDgOMqRDwRstrIZSmiTt7bUiAMHDhw4znIkm2gPtk/GZsXH4WPGgQMHDhxHOZKUKU+92sZS/p122K4I2Dhw4MCB4yhHfvthU2dU7Ds1chcx4cCBAweOoxyzLW4KdrNxuvYKBRYOHDhw4LjGkRfsZgME+SjDjQc2zGhx4MCBA8eIow2om7XBzZO3YvACBw4cOHAc5dgUB9sWUdusSmjalhUOHDhw4LjNsQmr+9G3PFXbp3Y/7gcHDhw4cFzj2ITMdqNnA3Byl+FAAw4cOHDgWHAkm04KcLNxh7bwd6p8iQMHDhw4znIkm9uU5PLrnCpKJo8BBw4cOHC8h6MdO2gDbZ6ktUlgcXgcOHDgwHGZY9Yo2pT/WsoEN2+S4cCBAweO2xz5Vvajcpvw3O6n4MaBAwcOHNc48nRrVhycJYftyELSKsOBAwcOHPc4ZmMKefkv39amlZUPXuPAgQMHjvdwzBpLs4HpfNChTdXahBMHDhw4cNzmaFOj5HU7ADdL2PJHggMHDhw43s+xoWn5knLeLJFL6HHgwIEDxw2OduVFvXzTs+GJNl080IXDgQMHDhxl26kITkE4TN5pE7Z2bCL6Q4ADBw4cOC5w5MF1n2LNRh/aMIwDBw4cOJ7AkSdXOVwLfSotLB4hDhw4cOB4AMcs0WoTxXxwIU/kcODAgQPHX+FoB9ryUbakjbSCxoEDBw4c1zjyoYGkJJekZ3n7qr3Cm2qlOHDgwIFjPdCQFw3zIt3mt5uGEw4cOHDguMFh4cCBAwcOHDhw4MCB42HrP2QuFd6HtqUmAAAAAElFTkSuQmCC">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Hexo/">Hexo</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=使用Hexo搭建GitHub博客（2018年Mac版）&url=https://story.wavky.com/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/index.html&via=Wavky Huang" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://story.wavky.com/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://story.wavky.com/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://story.wavky.com/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/index.html&title=使用Hexo搭建GitHub博客（2018年Mac版）" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=故事屋&title=使用Hexo搭建GitHub博客（2018年Mac版）&summary=姑且先试试用Hexo做个GitHub主页&pics=https://story.wavky.com/img/custom/favicon.ico&url=https://story.wavky.com/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><img src="/images/pasted-0.png" alt=""></p>
+<h2 id="关于本文"><a href="#关于本文" class="headerlink" title="关于本文"></a>关于本文</h2><p>本文仅记录自己学习搭建Hexo博客之时，搭建过程中掉坑的历程总结，对零基础起步的观众朋友可能缺乏某些基础技术的指导，请优先食用下述两篇优质教程：</p>
+<ul>
+<li><a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="noopener">【2018更新】小白独立搭建博客—Github Pages和Hexo简明教程 - Ryane的个人页面 - 开源中国</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a></li>
+</ul>
+<h2 id="十万个为什么"><a href="#十万个为什么" class="headerlink" title="十万个为什么"></a>十万个为什么</h2><h3 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h3><p>度娘谷歌搜索了Hexo各种资料解说，个人感觉上这是一套使用第三方主题模板+自己的博客文章（.md文件）+网站信息配置，通过Node.js进行本地连接混合生成一套静态网站的工具链套件</p>
+<p>也就是说，通过Hexo创建的博客是一个仅提供在线浏览功能的静态博客，不存在后台编辑功能，添加新博客时需要在自己开发机上编写新博客文章（.md文件），再次生成一个新版本网站，上传并替换，从而实现新文章发布</p>
+<p>优势是可使用网上各种免费的静态网站空间，节省服务器租金，省去维护服务器的工作，不需担心后台被黑导致数据丢失，无痛随时全站更换主题…</p>
+<p>劣势是不能在公司电脑上随时在线更新博客，除非带着Hexo博客源码…</p>
+<p>和需要自己保管好Hexo博客源码，否则数据丢了看上去有点难重新把博文整理下来</p>
+<p><img src="/images/pasted-1.png" alt=""></p>
+<h3 id="什么是Node-js"><a href="#什么是Node-js" class="headerlink" title="什么是Node.js"></a>什么是Node.js</h3><p>度娘谷歌搜索了Node.js各种资料解说，个人感觉上这就是一套SDK，一套使用JavaScript编写的，包含多个应用级功能模块，可用于一般应用开发的工具包</p>
+<p>JavaScript的运行需要一个JS解释器实时运算每一句JavaScript代码，一般情况下网页上的JS代码段会使用浏览器提供的解释器运行，而Node.js使用了谷歌开源的一个名为V8引擎的良心产品（JS解释器），实现脱离浏览器下运行JavaScript代码</p>
+<p><img src="/images/pasted-2.png" alt=""></p>
+<h3 id="什么是nvm"><a href="#什么是nvm" class="headerlink" title="什么是nvm"></a>什么是nvm</h3><p>nvm，Node Version Manager 是一个开源的Node.js版本管理Bash工具，可方便的在Bash环境下下载、更新、管理多个版本并存的Node.js，并选择性地使用其中一个</p>
+<p><img src="/images/pasted-3.png" alt=""></p>
+<h3 id="什么是GitHub-Pages"><a href="#什么是GitHub-Pages" class="headerlink" title="什么是GitHub Pages"></a>什么是GitHub Pages</h3><p>GitHub Pages 是GitHub提供的个人静态主页网站托管服务，原目的是用于提供你在GitHub上托管的所有开源项目介绍，后来也推荐作为个人博客之类的用途</p>
+<p>优势是使用简单方便，免费高效实时，可用空间高达1G，可绑定自定义域名，原生自带GitHub级别防护…好像无敌了</p>
+<p><img src="/images/pasted-4.png" alt=""></p>
+<p><a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages | Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and your changes are live.</a></p>
+<h3 id="什么是…"><a href="#什么是…" class="headerlink" title="什么是…"></a>什么是…</h3><p><img src="/images/pasted-5.png" alt=""></p>
+<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><ul>
+<li>已安装Git工具</li>
+<li>已有GitHub账号</li>
+<li>（Mac）已安装Xcode command line tools</li>
+</ul>
+<h2 id="安装nvm与Node-js"><a href="#安装nvm与Node-js" class="headerlink" title="安装nvm与Node.js"></a>安装nvm与Node.js</h2><p>参考我的另一篇文章 <a href="https://www.jianshu.com/p/c1b6c452a98a" target="_blank" rel="noopener">Node.js安装 - 简书</a></p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><pre><code class="bash">npm install -g hexo-cli
+</code></pre>
+<p>为了便于发布到GitHub上，建议同时安装<code>hexo-deployer-git</code></p>
+<pre><code class="bash">npm install hexo-deployer-git --save
+</code></pre>
+<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo安装文档</a></p>
+<h2 id="初始化，建立博客项目"><a href="#初始化，建立博客项目" class="headerlink" title="初始化，建立博客项目"></a>初始化，建立博客项目</h2><p>选定博客网站项目程序文件的存放位置，如<code>~/develop/hexo/github/</code>，Bash中cd进入该目录下，执行命令：</p>
+<pre><code class="bash">hexo init
+</code></pre>
+<p>执行完毕后，该命令将在当前目录下生成一套标准的Hexo博客项目模板</p>
+<h2 id="生成网站"><a href="#生成网站" class="headerlink" title="生成网站"></a>生成网站</h2><p>上面的操作只是生成了一套网站构成所需的“源代码”，实际发布时需要根据这套“源代码”当中的配置文件、博客文档（.md文件）、主题模板等，进行组合构建，生成服务器可识别的标准HTML网站目录，此时可使用该命令：</p>
+<pre><code class="bash">hexo g
+</code></pre>
+<p>执行完毕后，在<code>public</code>目录下可看到我们自己书写的博客文档（.md文件）与所选的博客主题模板链接组合，生成的最终静态网站文件，该目录也差不多就是之后发布到GitHub上的实际文件（实际发布到GitHub的是.deploy_git目录），外部的网站“源代码”不会上传到<code>github.io</code>库</p>
+<h2 id="启动本地服务器"><a href="#启动本地服务器" class="headerlink" title="启动本地服务器"></a>启动本地服务器</h2><p>启动本地服务器可即时查看网站运行效果：</p>
+<pre><code class="bash">hexo server
+</code></pre>
+<p>默认地址是 <a href="http://localhost:4000/" target="_blank" rel="noopener">localhost:4000</a></p>
+<h2 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h2><p>Hexo可随时使用、更换博客主题</p>
+<p>主题文件可在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官方主题网页</a>中下载，以Material为例，点击主题预览图下方的主题名称链接即可进入该主题的源码发布页面 <a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="noopener">GitHub - viosey/hexo-theme-material: Material Design theme for hexo.</a></p>
+<p><img src="/images/pasted-6.png" alt=""></p>
+<p>根据主题安装指导，下载项目至博客项目下的<code>themes</code>目录中，文件夹命名为<code>material</code>，并在博客配置文件<code>_config.yml</code>中指定使用该主题：</p>
+<pre><code class="yml">theme: material
+</code></pre>
+<p>将material主题目录下的<code>_config.template.yaml</code>重命名为<code>_config.yaml</code></p>
+<p>参考<a href="https://material.viosey.com/docs/#/" target="_blank" rel="noopener">Material主题文档</a>进行必要配置</p>
+<p>再次执行 <code>hexo g</code> 将会根据新主题重新构建整个博客</p>
+<p><strong>注意：</strong><br>Material 主题1.5.6版本在执行<code>hexo g</code>时会报出TypeError错误，可参考<a href="https://github.com/viosey/hexo-theme-material/issues/686" target="_blank" rel="noopener">Issue686</a>修改dnsprefetch.ejs文件解决</p>
+<p>Material 主题中的 prettify 高亮颜色主题可在这个网站中预览：<br><a href="https://jmblog.github.io/color-themes-for-google-code-prettify/" target="_blank" rel="noopener">Color themes for Google Code Prettify</a></p>
+<h2 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h2><h3 id="创建github-io仓库"><a href="#创建github-io仓库" class="headerlink" title="创建github.io仓库"></a>创建github.io仓库</h3><p>在自己的GitHub中，创建新仓库，标准命名为<code>GitHub用户名.github.io</code>，例如我的：wavky.github.io</p>
+<p>仓库Readme、License之类的留空即可，之后在发布上传时会被强制覆盖抹掉</p>
+<h3 id="配置SSH密钥"><a href="#配置SSH密钥" class="headerlink" title="配置SSH密钥"></a>配置SSH密钥</h3><p>参考 <a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="noopener">https://my.oschina.net/ryaneLee/blog/638440</a> 配置SSH密钥一节</p>
+<h3 id="修改博客配置文件-config-yml"><a href="#修改博客配置文件-config-yml" class="headerlink" title="修改博客配置文件_config.yml"></a>修改博客配置文件<code>_config.yml</code></h3><pre><code class="yml">deploy:
+  type: git
+  repo: GitHub上传仓库的完整路径，如 https://github.com/wavky/wavky.github.io.git
+  branch: master
+</code></pre>
+<h3 id="发布到GitHub"><a href="#发布到GitHub" class="headerlink" title="发布到GitHub"></a>发布到GitHub</h3><p>在<code>hexo g</code>生成完毕后，可执行该命令发布博客到GitHub上：</p>
+<pre><code class="bash">hexo d
+</code></pre>
+<p>或在生成网站的同时进行发布：</p>
+<pre><code class="bash">hexo g -d
+</code></pre>
+<h3 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h3><p>点击仓库页面中的GH Pages按钮，应该可以看到真正发布在互联网上的效果<br><img src="/images/pasted-7.png" alt=""></p>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>GitHub Pages 默认提供的是 <code>GitHub用户名.github.io</code>（例如我的：wavky.github.io）作为博客访问地址，可设置绑定自定义域名</p>
+<p>在博客项目目录的source文件夹中，创建一个CNAME文件，存储预备使用的个人域名，如：</p>
+<pre><code class="bash"># 在source目录下
+echo story.wavky.com &gt; CNAME
+</code></pre>
+<p>清理Hexo缓存并重新生成发布</p>
+<pre><code class="bash">hexo clean
+hexo g -d
+</code></pre>
+<p>GitHub项目页面中Setting设置界面，滚到GitHub Pages部分确认域名无误<br><img src="/images/pasted-8.png" alt=""></p>
+<p>在个人域名提供商（如阿里云万网）中，进入DNS设置界面，追加一条CNAME记录，这里我指定以story前缀的个人域名跳转到原来的默认的博客域名<code>wavky.github.io</code>，记录如下：<br><img src="/images/pasted-9.png" alt=""></p>
+<p><strong>注：其他类型的域名绑定方式（例如IP指向等），在最后一步DNS设置中操作会不一样</strong></p>
+<p>等待10分钟左右应该生效</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            本文由 Wavky 原创，采用 <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh' target='_blank'>保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="https://story.wavky.com/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/">https://story.wavky.com/2018/08/15/使用Hexo搭建GitHub博客（2018年Mac版）/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/08/15/使用Hexo写博客/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/custom/sidebar_header.svg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/custom/avatar.jpg" alt="Wavky Huang's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        master@wavky.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:master@wavky.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">4</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Develop/">Develop<span class="sidebar_archives-count">4</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">4</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/wavky/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+
+    <!-- Jianshu -->
+    
+        <a href="https://www.jianshu.com/u/c208fe704f17" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-jianshu">
+                <span class="visuallyhidden">Jianshu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- cnblogs -->
+    
+        <a href="https://www.cnblogs.com/wavky/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-cnblogs">
+                <span class="visuallyhidden">Cnblogs</span>
+            </button><!--
+     --></a>
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;故事屋
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2018;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":200},"mobile":{"show":true},"log":false});</script></body>
+    
+</html>
