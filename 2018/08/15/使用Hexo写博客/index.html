@@ -29,6 +29,8 @@
 
 
 
+    <link rel="dns-prefetch" href="https://wavky.disqus.com"/>
+
 
 
 
@@ -594,6 +596,35 @@ open http://localhost:4000/admin/
                 <!-- Post Comments -->
                 
                     
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://story.wavky.com/2018/08/15/使用Hexo写博客/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://story.wavky.com/2018/08/15/使用Hexo写博客/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//wavky.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
                 
             </div>
 
@@ -729,9 +760,41 @@ open http://localhost:4000/admin/
             </ul>
         </li>
         
+            <li class="divider"></li>
+        
     
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">bookmarks</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间线">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间线
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/About-Me" title="关于此人">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于此人
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->
@@ -959,6 +1022,9 @@ It will not impact the appearance and can give developers a lot of support :)
     <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+   <!-- 使用 DISQUS js 代码 -->
+<script id="dsq-count-scr" src="//wavky.disqus.com/count.js" async></script>
 
 
 

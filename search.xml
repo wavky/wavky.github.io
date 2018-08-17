@@ -89,5 +89,26 @@
   
   
     
+    <entry>
+      <title>About Me</title>
+      <link href="/About-Me/index.html"/>
+      <url>/About-Me/index.html</url>
+      <content type="html"><![CDATA[<h2 id="我是谁？"><a href="#我是谁？" class="headerlink" title="我是谁？"></a>我是谁？</h2><p>Wavky [weɪkɪ] （源自本名粤语发音，发明距今7年）</p><p>广东人，广府民系，年将而立<br>好摄影，好游乐，好思考人生<br>不好运动，不懂艺术，不善文学</p><p>毕业于珠海<br>大四之初失足进入Android开发泥潭<br>至今仍在此路上匍匐前行</p><p><strong>曾经</strong><br>基于SSH框架 Java个人博客 —— 资金链断裂，已倒闭<br>基于Swift2.3 iOS应用开发 —— 性格不合，已放弃<br>基于Python3 桌面应用开发 —— 已遗忘，等待重拾<br>基于Java Android应用开发 —— 已跳槽至Kotlin<br>基于Hexo 个人博客 —— 正在把玩</p><p><strong>现在</strong><br>于岛国某IT企业贡献绵力<br>通过Kotlin探索财务自由的方向<br>寻觅在水一方被需要的港湾</p><h2 id="我在哪里？"><a href="#我在哪里？" class="headerlink" title="我在哪里？"></a>我在哪里？</h2><iframe src="/inner/whereami.html" style="width:700px; height:320px; margin:0 auto; scrolling='0'">日本・東京</iframe><p>※ 上述区域中随机出现</p><h2 id="我要到哪里去？"><a href="#我要到哪里去？" class="headerlink" title="我要到哪里去？"></a>我要到哪里去？</h2><iframe style="margin:0 auto; width:560px; height:315px;" src="https://www.youtube.com/embed/BqFftJDXii0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe><p>※ 此处需要科学上网</p>]]></content>
+    </entry>
+    
+    <entry>
+      <title>Timeline</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>Tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
   
 </search>
