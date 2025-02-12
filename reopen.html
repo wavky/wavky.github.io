@@ -36,7 +36,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-02-09T14:56:25.000Z">
-<meta property="article:modified_time" content="2025-02-12T12:31:16.727Z">
+<meta property="article:modified_time" content="2025-02-12T12:34:31.841Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
@@ -438,8 +438,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-02-12 21:31:16</span>
-            <span class="mobile">2025-02-12 21:31:16</span>
+            <span class="desktop">2025-02-12 21:34:31</span>
+            <span class="mobile">2025-02-12 21:34:31</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -485,6 +485,7 @@
 <h3 id="重回-Hexo"><a href="#重回-Hexo" class="headerlink" title="重回 Hexo"></a>重回 Hexo</h3><p>根据 ChatGPT 指引，类似 Hexo 的还有 Hugo，基于 Go 语言而拥有相当优秀的编译速度，但夜已深，不想再浪费时间踩坑，也并不追求编译速度，也就放弃了研究。</p>
 <p>关于 Hexo 的使用方式，在 <strong><a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/wavky/p/HexoBlog.html" >博客园文章<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></strong> 中已有大佬详细说明过，在此不再赘述。</p>
 <p>吸取在丢失网站源文件上的前车之鉴，这次 Hexo 源文件提交到了 GitHub 的私有仓库中保存，编译部署则发布到 github.io 的公开仓库中。在 _config.yml 的 deploy 中指定 git 协议（SSH 协议？）的仓库路径，并在电脑系统中配置好默认的 SSH 私钥，就可以无痛一键完成上传部署了。</p>
+<p>2025.2.12 教训：一定要检查好 git 的 user 配置，或者在 _config.yml 的 deploy 中配置好 name 和 email，否则在 hexo deploy 时会自动使用全局配置并上传到公开仓库，敏感信息泄露得体无完肤原地哭死。</p>
 <h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>关于 CNAME 文件方面的私有域名绑定方法，在上面提到的 <strong><a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/wavky/p/HexoBlog.html" >博客园文章<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></strong> 中已有描述。</p>
 <p>这里主要介绍购买渠道，根据 ChatGPT 指引，选用了 <a class="link"   target="_blank" rel="noopener" href="https://porkbun.com/" >猪肉包 Porkbun<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 这个供应商，优势大概这些：</p>
 <ul>
@@ -502,7 +503,7 @@
                      
                 ></p>
 <p>实际上使用下来感觉确实很方便，HTTPS 方面可能得益于 GitHub 的功能，并不需要特别配置就能开箱即用，DNS 指向 GitHub Pages 仓库方面也提供了傻瓜式一键完成的功能，相关配置自动批量添加，省时省心不用学习。</p>
-<h3 id="域名邮箱"><a href="#域名邮箱" class="headerlink" title="域名邮箱"></a>域名邮箱</h3><p>在免费的自定义域名邮箱方面，使用了微软账号提供的免费 Outlook 邮箱，绑定自定义域名的邮箱作为别名（例如 <a class="link"   href="mailto:&#x63;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#119;&#x61;&#x76;&#x6b;&#x79;&#x2e;&#116;&#111;&#x70;" >contact@wavky.top<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>），再配合 Porkbun 免费提供的邮件转发服务，不需要额外配置 DNS 就可以实现简单的邮件收发功能（不过这种方式不适用于全域名自动适配）。</p>
+<h3 id="域名邮箱"><a href="#域名邮箱" class="headerlink" title="域名邮箱"></a>域名邮箱</h3><p>在免费的自定义域名邮箱方面，使用了微软账号提供的免费 Outlook 邮箱，绑定自定义域名的邮箱作为别名（例如 <a class="link"   href="mailto:&#x63;&#111;&#110;&#116;&#x61;&#x63;&#x74;&#64;&#x77;&#x61;&#118;&#x6b;&#x79;&#x2e;&#x74;&#x6f;&#x70;" >contact@wavky.top<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>），再配合 Porkbun 免费提供的邮件转发服务，不需要额外配置 DNS 就可以实现简单的邮件收发功能（不过这种方式不适用于全域名自动适配）。</p>
 <p>以前做这个功能的时候我记得使用的是企鹅邮箱，这次就脱离企鹅了吧，说实话用企鹅感觉有点土里土气的。</p>
 
 		</div>
@@ -518,7 +519,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-02-12 21:31:16
+                    :</strong> 2025-02-12 21:34:31
             </li>
         
         <li>
