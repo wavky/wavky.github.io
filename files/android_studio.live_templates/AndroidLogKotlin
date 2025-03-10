@@ -1,0 +1,15 @@
+<template name="logx" value="android.util.Log.e(&quot;xxx&quot;, &quot;$METHOD_NAME$: $content$&quot;, $exception$)" description="Log.e(xxx, String, Exception)" toReformat="true" toShortenFQNames="true">
+  <variable name="METHOD_NAME" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="false" />
+  <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
+  <variable name="exception" expression="" defaultValue="e" alwaysStopAt="true" />
+  <context>
+    <option name="KOTLIN_STATEMENT" value="true" />
+  </context>
+</template>
+<template name="logxe" value="android.util.Log.e(&quot;xxx&quot;, &quot;$METHOD_NAME$: $content$&quot;, Exception())" description="Log.e(xxx, String, new Exception)" toReformat="true" toShortenFQNames="true">
+  <variable name="METHOD_NAME" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="false" />
+  <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
+  <context>
+    <option name="KOTLIN_STATEMENT" value="true" />
+  </context>
+</template>

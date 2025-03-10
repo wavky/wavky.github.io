@@ -1,0 +1,17 @@
+.mutableState : compose mutableStateOf
+    ANY   →  androidx.compose.runtime.mutableStateOf($expr$)
+
+.byMutableState : by compose mutableStateOf
+    ANY   →  var $varName$ by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf($expr$) }
+
+.rem : compose remember { expr }
+    ANY   →  androidx.compose.runtime.remember { $expr$ }
+
+.remember : compose remember(keys) { expr }
+    ANY   →  androidx.compose.runtime.remember($other$) { $expr$ }
+
+.byvar : compose var
+    ANY   →  var $varName$ by $expr$
+
+.byval : compose val
+    ANY   →  val $varName$ by $expr$
