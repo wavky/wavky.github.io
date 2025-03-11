@@ -19,7 +19,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/reopen.html"/>
+    <link rel="canonical" href="http://example.com/mytricks/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -29,14 +29,14 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="再次启航">
-<meta property="og:url" content="http://example.com/reopen.html">
+<meta property="og:title" content="我的一些工作小技巧 (Mac系统)">
+<meta property="og:url" content="http://example.com/MyTricks/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-02-09T14:56:25.000Z">
-<meta property="article:modified_time" content="2025-02-12T13:51:29.224Z">
+<meta property="article:published_time" content="2025-03-11T12:16:06.000Z">
+<meta property="article:modified_time" content="2025-03-11T15:04:09.941Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
@@ -51,7 +51,7 @@
     
     <title>
         
-            再次启航 | Wavky
+            我的一些工作小技巧 (Mac系统) | Wavky
         
     </title>
 
@@ -411,12 +411,8 @@
 
 		<div class="article-title relative w-full">
 			
-			
-			
-			<img src="/reopen/cover.png" alt="再次启航" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
-			
-			<div class="w-full flex items-center absolute bottom-0 justify-start">
-				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">再次启航</h1>
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">我的一些工作小技巧 (Mac系统)</h1>
 			</div>
 			
 		</div>
@@ -437,19 +433,35 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-02-09 23:56:25</span>
-        <span class="mobile">2025-02-09 23:56:25</span>
+        <span class="desktop">2025-03-11 21:16:06</span>
+        <span class="mobile">2025-03-11 21:16:06</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-02-12 22:51:29</span>
-            <span class="mobile">2025-02-12 22:51:29</span>
+            <span class="desktop">2025-03-12 00:04:09</span>
+            <span class="mobile">2025-03-12 00:04:09</span>
             <span class="hover-info">Updated</span>
         </span>
     
 
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Android/">Android</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
     
     
 
@@ -472,45 +484,133 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><h3 id="2014-2018"><a href="#2014-2018" class="headerlink" title="2014 ~ 2018"></a>2014 ~ 2018</h3><p>在 2014 年末左右时候，曾经开发并部署过一次以 SSH 框架搭建的 JSP 个人网站，当时候申请了 .com 域名，服务器是利用职务之便薅的公司免费额度，为此还需要拍照备案，仪式感十足，但在网站完成部署之后就不了了之。</p>
+			<h2 id="切换公私-Git-环境：SSH-秘钥与-Git-用户信息"><a href="#切换公私-Git-环境：SSH-秘钥与-Git-用户信息" class="headerlink" title="切换公私 Git 环境：SSH 秘钥与 Git 用户信息"></a>切换公私 Git 环境：SSH 秘钥与 Git 用户信息</h2><p>在使用同一台电脑进行公司项目的工作，下班后进行自己项目的工作时，往往需要区分使用公司 GitHub 账号与私人 GitHub 账号，并且需要切换 Git 中的用户信息。</p>
+<p>通常我们使用 SSH 与 GitHub 进行连接访问，在 .ssh 目录中 config 文件有如下配置：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">   User git</span><br><span class="line">   Hostname github.com</span><br><span class="line">   # IdentityFile ~/.ssh/id_rsa_company</span><br><span class="line">   IdentityFile ~/.ssh/id_rsa_personal</span><br><span class="line">   AddKeysToAgent yes</span><br><span class="line">   IdentitiesOnly yes # 确保仅使用指定秘钥进行连接</span><br></pre></td></tr></table></figure></div>
 
-  <div class="note p-4 mb-4 rounded-small info">
-    <p><a class="link"   target="_blank" rel="noopener" href="https://github.com/wavky/WavkyHome" >JSP网站源代码<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>如果公司比较贫穷，没有购买 GitHub 企业账号的话，就会存在同一个 Hostname 需要配置不同秘钥的情况，而在 config 文件中不能同时配置多个相同 Hostname 的项。</p>
+<p>假设我们 SSH 中已创建好 id_rsa_company 与 id_rsa_personal 两个秘钥，并分别在各自 GitHub 账号中完成配置。<br>此时我们创建一条命令 ssh2me，实现一键切换公司账号与私人账号环境，主要切换内容是更换 SSH config 配置的秘钥，以及 Git 中配置的全局用户信息。</p>
+<p>ssh2me 命令脚本如下（需要自行替换 Git 用户信息）：</p>
+<details class="blue" data-header-exclude><summary><i class="fa-solid fa-chevron-right"></i>点击展开 </summary>
+              <div class='content'>
+              <div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">CONFIG_FILE=<span class="string">&quot;<span class="variable">$HOME</span>/.ssh/config&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">toggle_ssh_config</span></span>() &#123;</span><br><span class="line">    <span class="built_in">local</span> mode=<span class="variable">$1</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$mode</span>&quot;</span> == <span class="string">&quot;on&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        sed -i <span class="string">&#x27;&#x27;</span> -E <span class="string">&#x27;s|^[[:space:]]*#[[:space:]]*IdentityFile[[:space:]]+~/.ssh/id_rsa_personal|    IdentityFile ~/.ssh/id_rsa_personal|&#x27;</span> <span class="string">&quot;<span class="variable">$CONFIG_FILE</span>&quot;</span></span><br><span class="line">        sed -i <span class="string">&#x27;&#x27;</span> -E <span class="string">&#x27;s|^[[:space:]]*IdentityFile[[:space:]]+~/.ssh/id_rsa_company|    # IdentityFile ~/.ssh/id_rsa_company|&#x27;</span> <span class="string">&quot;<span class="variable">$CONFIG_FILE</span>&quot;</span></span><br><span class="line">        </span><br><span class="line">        git config --global user.name <span class="string">&quot;大帅&quot;</span></span><br><span class="line">        git config --global user.email <span class="string">&quot;大帅的私人邮件地址&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> [ <span class="string">&quot;<span class="variable">$mode</span>&quot;</span> == <span class="string">&quot;off&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        sed -i <span class="string">&#x27;&#x27;</span> -E <span class="string">&#x27;s|^[[:space:]]*IdentityFile[[:space:]]+~/.ssh/id_rsa_personal|    # IdentityFile ~/.ssh/id_rsa_personal|&#x27;</span> <span class="string">&quot;<span class="variable">$CONFIG_FILE</span>&quot;</span></span><br><span class="line">        sed -i <span class="string">&#x27;&#x27;</span> -E <span class="string">&#x27;s|^[[:space:]]*#[[:space:]]*IdentityFile[[:space:]]+~/.ssh/id_rsa_company|    IdentityFile ~/.ssh/id_rsa_company|&#x27;</span> <span class="string">&quot;<span class="variable">$CONFIG_FILE</span>&quot;</span></span><br><span class="line">        </span><br><span class="line">        git config --global user.name <span class="string">&quot;公司牛马&quot;</span></span><br><span class="line">        git config --global user.email <span class="string">&quot;公司邮件地址&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Usage: ssh2me on|off&quot;</span></span><br><span class="line">        current_user=$(git config --global user.name)</span><br><span class="line">        current_email=$(git config --global user.email)</span><br><span class="line">        <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$current_user</span>&quot;</span> == <span class="string">&quot;大帅&quot;</span> ] &amp;&amp; [ <span class="string">&quot;<span class="variable">$current_email</span>&quot;</span> == <span class="string">&quot;大帅的私人邮件地址&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Current User: 大帅&quot;</span></span><br><span class="line">        <span class="keyword">elif</span> [ <span class="string">&quot;<span class="variable">$current_user</span>&quot;</span> == <span class="string">&quot;公司牛马&quot;</span> ] &amp;&amp; [ <span class="string">&quot;<span class="variable">$current_email</span>&quot;</span> == <span class="string">&quot;公司邮件地址&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Current User: 公司牛马&quot;</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Current User: <span class="variable">$current_user</span> (<span class="variable">$current_email</span>)&quot;</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="built_in">exit</span> 0</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;SSH config and Git user info updated. ssh-agent restarted.&quot;</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$mode</span>&quot;</span> == <span class="string">&quot;on&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Current User: 大帅&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Current User: 公司牛马&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    ssh -T git@github.com</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">toggle_ssh_config <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure></div>
+              </div>
+            </details>
 
-  </div>
+<p>将脚本命令化并复制到系统中：</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x ssh2me</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> ssh2me /usr/local/bin/ssh2me</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者拷贝并强制覆盖</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -f ssh2me /usr/local/bin/ssh2me</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新命令缓存，触发重新索引</span></span><br><span class="line"><span class="built_in">hash</span> -r</span><br></pre></td></tr></table></figure></div>
 
-<p>然后在 2018 年的时候，又再学习部署过一次 Hexo 博客，这次是部署在 GitHub Pages 上，但仅在发布过几次文章之后也再次束之高阁。</p>
-<p>由于管理不善，用于构筑 Hexo 的源文件似乎是丢失了。</p>
-<p>在此期间，.com 域名也由于费用问题，不知道在什么时候没有再续费而放弃了，如今似乎已成了别人家的囊中之物，不过鉴于费用过高，即便是可以购买，也没打算去重新取得了，对于个人网站来说没有必要。</p>
-<h3 id="2025"><a href="#2025" class="headerlink" title="2025"></a>2025</h3><p>在 2025 年的今天，再次启程建立起一个新的 Hexo 博客，希望能持续记录下今后的工作成果。</p>
-<p>（由于 ChatGPT 的大聪明导致我浪费了一个上午时间去研究 Jekyll 的从入坑到放弃）</p>
-<p>这次域名选用 .top，最大理由当然是在所有域名之中首年费用、续费费用最低。</p>
-<h2 id="技术细节"><a href="#技术细节" class="headerlink" title="技术细节"></a>技术细节</h2><p>这次的个人博客搭建也是围绕简单速成低技术的原则进行。前期咨询了 IT 行业大佬 Mr. ChatGPT 提供专业意见，前文也提到过，由于被他误导，花费了大半天时间去研究 Jekyll。</p>
-<h3 id="关于-Jekyll"><a href="#关于-Jekyll" class="headerlink" title="关于 Jekyll"></a>关于 Jekyll</h3><p>Jekyll 是 GitHub Pages 官方支持的另一套静态博客生成工具，与 Hexo 相比最大区别是 Jekyll 的网站生成是动态的，不需要通过命令来编译 Markdown 等资源再生成 HTML，只需要提交 Markdown 文件到目录中，就会自动进行编译并反映到网站上。（应该大概是这样）</p>
-<p>遗憾的是 Jekyll 的主题相对较少，且大部分还是收费，难得找到一个不错的主题，但耐不住配置过于繁杂，调试半天都没有成功，遂放弃。</p>
-<h3 id="重回-Hexo"><a href="#重回-Hexo" class="headerlink" title="重回 Hexo"></a>重回 Hexo</h3><p>根据 ChatGPT 指引，类似 Hexo 的还有 Hugo，基于 Go 语言而拥有相当优秀的编译速度，但夜已深，不想再浪费时间踩坑，也并不追求编译速度，也就放弃了研究。</p>
-<p>关于 Hexo 的使用方式，在 <strong><a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/wavky/p/HexoBlog.html" >博客园文章<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></strong> 中已有大佬详细说明过，在此不再赘述。</p>
-<p>吸取在丢失网站源文件上的前车之鉴，这次 Hexo 源文件提交到了 GitHub 的私有仓库中保存，编译部署则发布到 github.io 的公开仓库中。在 _config.yml 的 deploy 中指定 git 协议（SSH 协议？）的仓库路径，并在电脑系统中配置好默认的 SSH 私钥，就可以无痛一键完成上传部署了。</p>
-<p>2025.2.12 教训：一定要检查好 git 的 user 配置，或者在 _config.yml 的 deploy 中配置好 name 和 email，否则在 hexo deploy 时会自动使用全局配置并上传到公开仓库，敏感信息泄露得体无完肤原地哭死。</p>
-<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>关于 CNAME 文件方面的私有域名绑定方法，在上面提到的 <strong><a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/wavky/p/HexoBlog.html" >博客园文章<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></strong> 中已有描述。</p>
-<p>这里主要介绍购买渠道，根据 ChatGPT 指引，选用了 <a class="link"   target="_blank" rel="noopener" href="https://porkbun.com/" >猪肉包 Porkbun<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 这个供应商，优势大概这些：</p>
-<ul>
-<li>价格最便宜，价格表直观清晰透明</li>
-<li>.top 等域名首年促销价格十分优惠</li>
-<li>支持支付宝、ApplePay 等多种支付方式</li>
-<li>免费提供隐私保护、SSL 证书、邮件转发等服务</li>
-<li>海外供应商，不需要备案</li>
-<li>LOGO 猪猪很可爱</li>
-</ul>
+<p>使用方式：</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh2me <span class="comment"># 显示当前配置的用户信息</span></span><br><span class="line">ssh2me on <span class="comment"># 切换到个人账号环境</span></span><br><span class="line">ssh2me off <span class="comment"># 切换到公司账号环境</span></span><br></pre></td></tr></table></figure></div>
+
+
+<h2 id="一键创建-Android-项目模板目录"><a href="#一键创建-Android-项目模板目录" class="headerlink" title="一键创建 Android 项目模板目录"></a>一键创建 Android 项目模板目录</h2><p>在我新创建的 Android 项目中，需要统一创建一套用习惯的目录结构，为了避免每次手动创建一堆目录的重复工作，现在将这些任务编排为 shell 脚本形式，在 Bash 中一键生成即可。</p>
+<p>我想在每个项目中都创建这样的目录结构：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── app</span><br><span class="line">│   └── common</span><br><span class="line">│       ├── res</span><br><span class="line">│       └── ui</span><br><span class="line">├── usecase</span><br><span class="line">└── domain</span><br><span class="line">    ├── infra</span><br><span class="line">    │   ├── api</span><br><span class="line">    │   │   ├── request</span><br><span class="line">    │   │   └── response</span><br><span class="line">    │   ├── db</span><br><span class="line">    │   │   ├── dao</span><br><span class="line">    │   │   └── entity</span><br><span class="line">    │   └── kv</span><br><span class="line">    ├── model</span><br><span class="line">    └── repository</span><br></pre></td></tr></table></figure></div>
+
+<p>编排成 Shell 脚本：</p>
+<details class="blue" data-header-exclude><summary><i class="fa-solid fa-chevron-right"></i>点击展开 </summary>
+              <div class='content'>
+              <div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义目录结构</span></span><br><span class="line"><span class="built_in">dirs</span>=(</span><br><span class="line">  <span class="string">&quot;app/common/ui&quot;</span></span><br><span class="line">  <span class="string">&quot;app/common/res&quot;</span></span><br><span class="line">  <span class="string">&quot;usecase&quot;</span></span><br><span class="line">  <span class="string">&quot;domain/infra/api/request&quot;</span></span><br><span class="line">  <span class="string">&quot;domain/infra/api/response&quot;</span></span><br><span class="line">  <span class="string">&quot;domain/infra/db/dao&quot;</span></span><br><span class="line">  <span class="string">&quot;domain/infra/db/entity&quot;</span></span><br><span class="line">  <span class="string">&quot;domain/infra/kv&quot;</span></span><br><span class="line">  <span class="string">&quot;domain/model&quot;</span></span><br><span class="line">  <span class="string">&quot;domain/repository&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建目录</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">dir</span> <span class="keyword">in</span> <span class="string">&quot;<span class="variable">$&#123;dirs[@]&#125;</span>&quot;</span>; <span class="keyword">do</span></span><br><span class="line">  <span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$dir</span>&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;目录结构创建完成。&quot;</span></span><br><span class="line">tree .</span><br></pre></td></tr></table></figure></div>
+              </div>
+            </details>
+
+<p>将 Shell 脚本文件命名为 deployDirs，并执行以下指令将该脚本命令化：</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x deployDirs</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> deployDirs /usr/local/bin/</span><br><span class="line"><span class="comment"># 刷新命令缓存，触发重新索引</span></span><br><span class="line"><span class="built_in">hash</span> -r</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 Android Studio 创建好项目后，在项目的包路径末端目录（如 app/src/main/java/com/wavky/simpletodo/）下执行命令</span></span><br><span class="line">deployDirs</span><br></pre></td></tr></table></figure></div>
+
+
+<h2 id="Live-Templates"><a href="#Live-Templates" class="headerlink" title="Live Templates"></a>Live Templates</h2><p>Android Studio 中的 Live Templates 功能支持自定义关键词，当输入指定关键词时，IDE 会识别并提示可快速替换为指定的模板代码。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/reopen/porkbun.png"
+                     data-src="/MyTricks/live-templates.png"
                      
                 ></p>
-<p>实际上使用下来感觉确实很方便，HTTPS 方面可能得益于 GitHub 的功能，并不需要特别配置就能开箱即用，DNS 指向 GitHub Pages 仓库方面也提供了傻瓜式一键完成的功能，相关配置自动批量添加，省时省心不用学习。</p>
-<h3 id="域名邮箱"><a href="#域名邮箱" class="headerlink" title="域名邮箱"></a>域名邮箱</h3><p>在免费的自定义域名邮箱方面，使用了微软账号提供的免费 Outlook 邮箱，绑定自定义域名的邮箱作为别名（例如 <a class="link"   href="mailto:&#x63;&#111;&#110;&#x74;&#x61;&#99;&#116;&#x40;&#x77;&#x61;&#118;&#x6b;&#x79;&#46;&#116;&#x6f;&#112;" >contact@wavky.top<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>），再配合 Porkbun 免费提供的邮件转发服务，不需要额外配置 DNS 就可以实现简单的邮件收发功能（不过这种方式不适用于全域名自动适配）。</p>
-<p>以前做这个功能的时候我记得使用的是企鹅邮箱，这次就脱离企鹅了吧，说实话用企鹅感觉有点土里土气的。</p>
+<p>以下按 Live Templates 中各个小节列出我的自定义模板。</p>
+
+  <div class="note p-4 mb-4 rounded-small blue fa-solid icon-padding">
+    <i class="note-icon fa-solid fa-paste"></i><p>从各个 <strong>配置文件</strong> 中 Ctrl + C &#x2F; V 复制并粘贴所需段落到 Android Studio 的设置中对应的小节里即可</p>
+
+  </div>
+
+<h3 id="AndroidCompose-小节"><a href="#AndroidCompose-小节" class="headerlink" title="AndroidCompose 小节"></a>AndroidCompose 小节</h3><a class="button  regular" href='/files/android_studio.live_templates/AndroidCompose.ini' title='__配置文件__'><i class='fa-solid fa-file'></i> __配置文件__</a>
+
+<ul>
+<li>remu：生成 remember { mutableStateOf($PARAM$) }，摘抄自朱凯老师</li>
+<li>modi：生成 modifier &#x3D; modifier，用于 @Composable 函数的参数快速填充</li>
+<li>compre：生成自定义 @Composable 函数和对应的 Preview 函数，模板代码应用后写上自定义的函数名即可</li>
+<li>compre filename：生成自定义 @Composable 函数和对应的 Preview 函数，自动使用当前文件名作为函数名，例如创建的文件名为 ConfirmButton.kt 时，函数名自动命名为 ConfirmButton</li>
+<li>screen：生成自定义 Screen 类型 @Composable 函数、Content 函数和对应的 Preview 函数，模板代码应用后写上自定义的 Screen 函数名即可</li>
+<li>screen filename：生成自定义 Screen 类型 @Composable 函数、Content 函数和对应的 Preview 函数，自动使用当前文件名作为函数名</li>
+</ul>
+<h3 id="AndroidLog-小节"><a href="#AndroidLog-小节" class="headerlink" title="AndroidLog 小节"></a>AndroidLog 小节</h3><p>这部分是 Java 版本的 Log 相关</p>
+<a class="button  regular" href='/files/android_studio.live_templates/AndroidLog.ini' title='__配置文件__'><i class='fa-solid fa-file'></i> __配置文件__</a>
+
+<ul>
+<li>logx：生成 Log.e(“xxx”, “$METHOD_NAME$: $content$”, $exception$);</li>
+<li>logxe：生成 Log.e(“xxx”, “$METHOD_NAME$: $content$”, new Exception());</li>
+</ul>
+<h3 id="AndroidLogKotlin-小节"><a href="#AndroidLogKotlin-小节" class="headerlink" title="AndroidLogKotlin 小节"></a>AndroidLogKotlin 小节</h3><p>这部分是 Kotlin 版本的 Log 相关</p>
+<a class="button  regular" href='/files/android_studio.live_templates/AndroidLogKotlin.ini' title='__配置文件__'><i class='fa-solid fa-file'></i> __配置文件__</a>
+
+<ul>
+<li>logx：生成 Log.e(“xxx”, “$METHOD_NAME$: $content$”, $exception$)</li>
+<li>logxe：生成 Log.e(“xxx”, “$METHOD_NAME$: $content$”, Exception())</li>
+</ul>
+<h2 id="Postfix-Kotlin"><a href="#Postfix-Kotlin" class="headerlink" title="Postfix (Kotlin)"></a>Postfix (Kotlin)</h2><p>Android Studio 中的 Postfix 功能支持以自定义后缀的方式，快速生成完整的代码结构。</p>
+<p>但是当前 Android Studio 不支持自定义 Kotlin 的 Postfix，需要通过插件 <a class="link"   target="_blank" rel="noopener" href="https://plugins.jetbrains.com/plugin/9862-custom-postfix-templates" >Custom Postfix Templates<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 来实现。</p>
+<p>插件安装完成后，可在设置中导航至该插件设置部分：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/MyTricks/postfix.png"
+                     
+                ><br>（也可通过顶部 Tools 菜单中 Custom Postfix Templates 子菜单进入）</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>以上图为例，自定义了一个 surrund 模板，在输入 <code>val result = api.request().surround</code> 时，点按回车会自动转换为以下形式：</p>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> result = &lt;光标位置&gt; &#123; api.request() &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/MyTricks/surround.png"
+                     
+                ></p>
+
+  <div class="note p-4 mb-4 rounded-small blue">
+    <p>如下图所示，在 Custom Postfix Templates 设置中，点击 + 号按钮添加一个 Templates file 文件，语言选择 Kotlin，类型选择 Web template file，将下方的模板链接复制过去，并为文件提供命名即可。</p>
+
+  </div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/MyTricks/add-postfix.png"
+                     
+                ></p>
+<p>以下按 Custom Postfix Templates 中 Kotlin 下的各个文件，列出我的自定义模板。</p>
+<h3 id="Compose"><a href="#Compose" class="headerlink" title="Compose"></a>Compose</h3><ul>
+<li>.rem：转换成 <code>remember &#123; 原表达式 &#125;</code></li>
+<li>.remember：转换成 <code>remember(keys) &#123; 原表达式 &#125;</code></li>
+<li>.byval：转换成 <code>val 变量名 by 原表达式</code>，配合 .rem &#x2F; .remember 使用</li>
+<li>.byvar：转换成 <code>var 变量名 by 原表达式</code>，配合 .rem &#x2F; .remember 使用</li>
+<li>.mutableState：转换成 <code>mutableStateOf(原表达式)</code></li>
+<li>.byMutableState：转换成 <code>var 变量名 by remember &#123; mutableStateOf(原表达式) &#125;</code></li>
+</ul>
+
+  <div class="note p-4 mb-4 rounded-small blue">
+    <p><a class="link"   target="_blank" rel="noopener" href="https://wavky.top/files/android_stuido.plugin.custom_postfix_temp/Compose.postfixTemplates" >https://wavky.top/files/android_stuido.plugin.custom_postfix_temp/Compose.postfixTemplates<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+
+  </div>
+
+
+<h3 id="Common"><a href="#Common" class="headerlink" title="Common"></a>Common</h3><ul>
+<li>.surround：转换成 <code>&lt;光标位置&gt; &#123; 原表达式 &#125;</code></li>
+</ul>
+
+  <div class="note p-4 mb-4 rounded-small blue">
+    <p><a class="link"   target="_blank" rel="noopener" href="https://wavky.top/files/android_stuido.plugin.custom_postfix_temp/Common.postfixTemplates" >https://wavky.top/files/android_stuido.plugin.custom_postfix_temp/Common.postfixTemplates<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+
+  </div>
 
 		</div>
 
@@ -518,18 +618,18 @@
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> 再次启航</li>
+        <li><strong>Title:</strong> 我的一些工作小技巧 (Mac系统)</li>
         <li><strong>Author:</strong> Wavky</li>
         <li><strong>Created at
-                :</strong> 2025-02-09 23:56:25</li>
+                :</strong> 2025-03-11 21:16:06</li>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-02-12 22:51:29
+                    :</strong> 2025-03-12 00:04:09
             </li>
         
         <li>
-            <strong>Link:</strong> https://wavky.top//reopen.html
+            <strong>Link:</strong> https://wavky.top//MyTricks/
         </li>
         <li>
             <strong>
@@ -554,18 +654,18 @@
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
-			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/SimpleTodo/">
-					<span class="left arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-left"></i>
-					</span>
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/SimpleTodo/">
 					<span class="title flex justify-center items-center">
 						<span class="post-nav-title-item">写了一个 SimpleTodo</span>
-						<span class="post-nav-item">Prev posts</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
 					</span>
 				</a>
 			</div>
-			
 			
 		</div>
 		
@@ -579,8 +679,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
-		<div class="page-title">再次启航</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2"><span class="nav-text">历史</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2014-2018"><span class="nav-text">2014 ~ 2018</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2025"><span class="nav-text">2025</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82"><span class="nav-text">技术细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-Jekyll"><span class="nav-text">关于 Jekyll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%9B%9E-Hexo"><span class="nav-text">重回 Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D"><span class="nav-text">域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1"><span class="nav-text">域名邮箱</span></a></li></ol></li></ol>
+		<div class="page-title">我的一些工作小技巧 (Mac系统)</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E5%85%AC%E7%A7%81-Git-%E7%8E%AF%E5%A2%83%EF%BC%9ASSH-%E7%A7%98%E9%92%A5%E4%B8%8E-Git-%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-text">切换公私 Git 环境：SSH 秘钥与 Git 用户信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E9%94%AE%E5%88%9B%E5%BB%BA-Android-%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF%E7%9B%AE%E5%BD%95"><span class="nav-text">一键创建 Android 项目模板目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Live-Templates"><span class="nav-text">Live Templates</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidCompose-%E5%B0%8F%E8%8A%82"><span class="nav-text">AndroidCompose 小节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidLog-%E5%B0%8F%E8%8A%82"><span class="nav-text">AndroidLog 小节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidLogKotlin-%E5%B0%8F%E8%8A%82"><span class="nav-text">AndroidLogKotlin 小节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Postfix-Kotlin"><span class="nav-text">Postfix (Kotlin)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compose"><span class="nav-text">Compose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Common"><span class="nav-text">Common</span></a></li></ol></li></ol>
 
 	</div>
 </div>
