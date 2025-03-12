@@ -1,2 +1,2 @@
 .surround : surround with
-    ANY   →  $other$ { $expr$ }$END$
+    ANY   →  $other$ { $expr$ }
