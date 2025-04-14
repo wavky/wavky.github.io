@@ -1,2 +1,2 @@
 .stringPref : stringPreferencesKey(expr)
-	ANY  →  androidx.datastore.preferences.core.stringPreferencesKey($expr$)
+    ANY  →  androidx.datastore.preferences.core.stringPreferencesKey($expr$)
