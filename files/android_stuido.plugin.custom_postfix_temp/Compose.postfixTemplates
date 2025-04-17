@@ -15,3 +15,12 @@
 
 .byval : compose val
     ANY   →  val $varName$ by $expr$
+
+.box : surround with box
+    ANY   →  androidx.compose.foundation.layout.Box { $expr$ }
+
+.row : surround with row
+    ANY   →  androidx.compose.foundation.layout.Row { $expr$ }
+
+.column : surround with column
+    ANY   →  androidx.compose.foundation.layout.Column { $expr$ }
