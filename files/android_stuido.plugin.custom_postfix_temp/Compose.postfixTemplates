@@ -24,3 +24,6 @@
 
 .column : surround with column
     ANY   →  androidx.compose.foundation.layout.Column { $expr$ }
+
+.theme : surround with MaterialTheme
+    ANY   →  androidx.compose.material3.MaterialTheme { $expr$ }
