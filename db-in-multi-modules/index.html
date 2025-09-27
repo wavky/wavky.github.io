@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Wavky">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/db-in-multi-modules/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Koin 依赖注入: 在 Android 模块化项目中定义 Room 数据库的最佳实践">
+<meta property="og:url" content="http://example.com/db-in-multi-modules/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-04-04T15:06:06.000Z">
+<meta property="article:modified_time" content="2025-06-16T10:17:16.811Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Koin">
+<meta property="article:tag" content="Room">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/img/favicon/favicon.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/favicon.ico">
+    <meta name="theme-color" content="#D1D2B6">
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Koin 依赖注入: 在 Android 模块化项目中定义 Room 数据库的最佳实践 | Wavky
+        
+    </title>
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["Until Retirement: 30 Years"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":4,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"all_rights_reserved"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#D1D2B6","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Wavky","subtitle":{"text":["Android developer with 10+ years of experience.","浮浮沉沉十数载的安卓攻城狮","精通中、日、英（Powered by ChatGPT）","脚踏白毛犬，隐居异乡村，呷茶品鉴天下事，赛博编码贾维斯。"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":30,"backing_speed":15,"starting_delay":500,"backing_delay":3000,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/wavky","instagram":null,"zhihu":null,"twitter":null,"email":"contact@wavky.top"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Todos":{"path":"/todo","icon":"fa-solid fa-list-check"},"Apps":{"icon":"fa-brands fa-android","submenus":{"Privacy Policy":"/apps/Privacy_Policy"}},"Links":{"icon":"fa-regular fa-link","submenus":{"Hexo":"https://hexo.io/zh-cn/docs/","主题配置 Redefine":"https://redefine-docs.ohevan.com/zh/introduction","图标 Font Awesome":"https://fontawesome.com/search?ic=free","原型设计 Excalidraw":"https://excalidraw.com/"}},"Contact Me":{"icon":"fa-regular fa-id-badge","submenus":{"GitHub":"https://github.com/wavky","Email":"mailto:contact@wavky.top"}}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/2/9 12:00:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Wavky
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/todo"
+                                        >
+                                    <i class="fa-solid fa-list-check fa-fw"></i>
+                                    TODOS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-brands fa-android fa-fw"></i>
+                                    APPS
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/apps/Privacy_Policy">
+                                                    PRIVACY POLICY
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-link fa-fw"></i>
+                                    LINKS
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">
+                                                    HEXO
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://redefine-docs.ohevan.com/zh/introduction">
+                                                    主题配置 REDEFINE
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://fontawesome.com/search?ic=free">
+                                                    图标 FONT AWESOME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://excalidraw.com/">
+                                                    原型设计 EXCALIDRAW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-id-badge fa-fw"></i>
+                                    CONTACT ME
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/wavky">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="mailto:contact@wavky.top">
+                                                    EMAIL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/todo"
+                        >
+                            <span>
+                                TODOS
+                            </span>
+                            
+                                <i class="fa-solid fa-list-check fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Apps"
+                        >
+                            <span>
+                                APPS
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Apps">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/apps/Privacy_Policy">PRIVACY POLICY</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Links"
+                        >
+                            <span>
+                                LINKS
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Links">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">HEXO</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://redefine-docs.ohevan.com/zh/introduction">主题配置 REDEFINE</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://fontawesome.com/search?ic=free">图标 FONT AWESOME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://excalidraw.com/">原型设计 EXCALIDRAW</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Contact Me"
+                        >
+                            <span>
+                                CONTACT ME
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Contact Me">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/wavky">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="mailto:contact@wavky.top">EMAIL</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Koin 依赖注入: 在 Android 模块化项目中定义 Room 数据库的最佳实践</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/img/profile.png">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Wavky</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Until Retirement: 30 Years</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-04-05 00:06:06</span>
+        <span class="mobile">2025-04-05 00:06:06</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-06-16 19:17:16</span>
+            <span class="mobile">2025-06-16 19:17:16</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Android/">Android</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/Android/Koin/">Koin</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        <li>
+                            | <a href="/categories/Android/Room/">Room</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Koin/">Koin</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Room/">Room</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3.2k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>12 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+		<div class="article-expire mt-4 mx-2 sm:mx-6 md:mx-8 note p-4 rounded-lg red icon hidden" id="expiration-container">
+			<i class="expire-icon fa-solid fa-timer mr-0.5 text-red-600 dark:text-red-400"></i>
+			<span class="expire-label text-red-600 dark:text-red-400 " id="expiration-date">This post is written some days ago, and the content may not be up to date.</span>
+		</div>
+
+		<script data-swup-reload-script>
+			function updateExpirationDate() {
+				try {
+					const expiredDate = new Date("Mon Apr 05 2027 00:06:06 GMT+0900 (日本標準時)");
+					const updatedDate = new Date("Mon Jun 16 2025 19:17:16 GMT+0900");
+					const now = new Date();
+					const expirationValue = document.getElementById("expiration-date");
+					const expirationContainer = document.getElementById("expiration-container");
+					let daysAgo = Math.floor((now - updatedDate) / (1000 * 60 * 60 * 24));
+					if (expiredDate < now) {
+						expirationContainer.classList.remove("hidden");
+						// console.log(daysAgo)
+						expirationValue.innerHTML = expirationValue.innerHTML.replace("some", daysAgo);
+					}
+				} catch (e) {}
+			}
+			document.addEventListener("DOMContentLoaded", function() {
+				updateExpirationDate();
+			});
+			try {
+				swup.hooks.on("page:view", updateExpirationDate)
+			} catch (e) {}
+		</script>
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="什么是模块化架构"><a href="#什么是模块化架构" class="headerlink" title="什么是模块化架构"></a>什么是模块化架构</h2><p>Android 模块化架构是一种将应用程序拆分为多个独立模块的设计方法，以提高代码复用性、可维护性和团队协作效率。</p>
+<p>例如，一个 Android 项目以模块化的方式设计组织之后，大概会形成以下的目录结构：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Android 模块化架构</span><br><span class="line">│</span><br><span class="line">├── 应用层 (App Module): App 的主入口</span><br><span class="line">│   ├── 主体界面 (Activity / Fragment)</span><br><span class="line">│   ├── 业务逻辑 (ViewModel / UseCase)</span><br><span class="line">│   ├── 数据层 (Repository)</span><br><span class="line">│   └── 依赖（组装）功能模块、共享模块</span><br><span class="line">│</span><br><span class="line">├── 功能模块 (Feature Modules)</span><br><span class="line">│   ├── 某个具体功能 (如支付模块) 的具体实现</span><br><span class="line">│   ├── 功能界面 (Activity / Fragment)</span><br><span class="line">│   ├── 业务逻辑 (ViewModel / UseCase)</span><br><span class="line">│   ├── 数据层 (Repository)</span><br><span class="line">│   └── 依赖共享模块</span><br><span class="line">│</span><br><span class="line">└── 共享模块 (Common Modules)</span><br><span class="line">    ├── 主题与样式 (UI Components / Theme)</span><br><span class="line">    ├── 全局通用资源文件 (Strings / Colors / Drawables)</span><br><span class="line">    ├── 公共库 (如通用 View 组件 / 基础 Activity / 通用数据类型 / 全局常量 / 算法库)</span><br><span class="line">    ├── 工具类 (Utils / Extensions)</span><br><span class="line">    ├── 依赖库</span><br><span class="line">    └── 其他可复用的代码</span><br></pre></td></tr></table></figure></div>
+
+
+  <div class="note-large blue">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>应用模块、功能模块的模板目录结构和一键批量创建的方法</p>
+
+    </div>
+    <div class="notel-content">
+      <p><a class="link"   target="_blank" rel="noopener" href="https://wavky.top/MyTricks/#%E4%B8%80%E9%94%AE%E5%88%9B%E5%BB%BA-Android-%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF%E7%9B%AE%E5%BD%95" >一键创建 Android 项目模板目录<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+
+    </div>
+  </div>
+
+<p><strong>这种架构的优点：</strong></p>
+<ul>
+<li>解耦：不同功能模块可以独立开发和维护，为后期重构创造便利。</li>
+<li>团队协作：不同团队可以并行开发不同模块，减少代码合并冲突。</li>
+<li>复用性：多个应用可以共享核心模块或公共库。</li>
+<li>加速构建：模块可以独立编译，加快 Gradle 构建速度。</li>
+</ul>
+<p><strong>模块间的依赖关系如下图所示</strong><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/db-in-multi-modules/multi-modules.png"
+                     
+                ></p>
+<h2 id="简单介绍一下-Room"><a href="#简单介绍一下-Room" class="headerlink" title="简单介绍一下 Room"></a>简单介绍一下 Room</h2><p>Room 是 Android Jetpack 中的一个 SQLite 封装库，它提供了一个抽象层来简化 SQLite 数据库的使用，提供一组基于注解的 API 来标准化数据库操作，并提供类型安全支持。</p>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p><strong>以实体类方式定义数据表</strong></p>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">data</span> <span class="keyword">class</span> <span class="title class_">User</span>(</span><br><span class="line">    <span class="meta">@PrimaryKey</span> <span class="keyword">val</span> id: <span class="built_in">Long</span>,</span><br><span class="line">    <span class="keyword">val</span> firstName: String?,</span><br><span class="line">    <span class="keyword">val</span> lastName: String?</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>定义增删改查的 Dao</strong></p>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Dao</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">UserDao</span> &#123;</span><br><span class="line">    <span class="meta">@Query(<span class="string">&quot;SELECT * FROM user&quot;</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getAll</span><span class="params">()</span></span>: Flow&lt;User&gt;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Query(<span class="string">&quot;SELECT * FROM user WHERE uid IN (:userIds)&quot;</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">loadAllByIds</span><span class="params">(userIds: <span class="type">IntArray</span>)</span></span>: List&lt;User&gt;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Query(<span class="string">&quot;SELECT * FROM user WHERE first_name LIKE :first AND last_name LIKE :last LIMIT 1&quot;</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">findByName</span><span class="params">(first: <span class="type">String</span>, last: <span class="type">String</span>)</span></span>: User</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Insert</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">insertAll</span><span class="params">(<span class="keyword">vararg</span> users: <span class="type">User</span>)</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Update</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">update</span><span class="params">(user: <span class="type">User</span>)</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Delete</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">delete</span><span class="params">(user: <span class="type">User</span>)</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>定义数据库 AppDatabase</strong></p>
+
+  <div class="note p-4 mb-4 rounded-small blue">
+    <p>下文使用 AppDatabase 指代自定义 Room 数据库类</p>
+
+  </div>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义数据库时需要访问到 App 中所有的 Entity 和 Dao 接口</span></span><br><span class="line"><span class="meta">@Database(entities = [User::class], version = 1)</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">AppDatabase</span> : <span class="type">RoomDatabase</span>() &#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="function"><span class="keyword">fun</span> <span class="title">userDao</span><span class="params">()</span></span>: UserDao</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>读写数据</strong></p>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> db = Room.databaseBuilder(</span><br><span class="line">        applicationContext,</span><br><span class="line">        AppDatabase::<span class="keyword">class</span>.java, <span class="string">&quot;database-name&quot;</span></span><br><span class="line">    ).build()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要通过数据库对象来获取 Dao 对象，进行数据操作</span></span><br><span class="line"><span class="keyword">val</span> userDao = db.userDao()</span><br><span class="line"><span class="keyword">val</span> user = User(<span class="number">1</span>, <span class="string">&quot;John&quot;</span>, <span class="string">&quot;Doe&quot;</span>)</span><br><span class="line">userDao.insertAll(user)</span><br><span class="line"><span class="keyword">val</span> allUsers: Flow&lt;List&lt;User&gt;&gt; = userDao.getAll()</span><br></pre></td></tr></table></figure></div>
+
+
+  <div class="note p-4 mb-4 rounded-small green">
+    <p>值得一提的是，Room 支持直接返回 Flow 类型的查询结果（也支持 LiveData），为 Compose 的数据订阅提供了基础支持。</p>
+
+  </div>
+
+
+<h2 id="在模块化架构中的争议点"><a href="#在模块化架构中的争议点" class="headerlink" title="在模块化架构中的争议点"></a>在模块化架构中的争议点</h2><p>如前面所述，在 Android 模块化架构中，依赖关系是单向的：</p>
+<ul>
+<li>应用模块依赖：功能模块，共享模块</li>
+<li>功能模块依赖：共享模块，或者其他子功能模块</li>
+<li>共享模块依赖：不依赖任何自定义模块</li>
+</ul>
+<p>在这种依赖关系中，下层模块看不到（访问不到）上层模块的实现，例如共享模块内是访问不到应用模块中的 MainActivity 的。</p>
+<p>在实际开发中，应用模块和功能模块往往都需要使用 Room 来存取数据，在各模块内自定义独有的数据表和 Dao，甚至在共享模块中也可能会有一些基础的公共数据表和 Dao 的定义。</p>
+<p>在 Room 中对数据的操作依赖各个 Dao 对象来执行，而 Dao 对象依赖 AppDatabase 实例来创建，因此 AppDatabase 应该放置在比较底层的位置，以便所有模块都能访问到所需的 Entity 和 Dao 实例。</p>
+<p>但在上面的 Room 介绍一节中我们可以看到，在定义和实例化 AppDatabase 时，是需要访问到 App 中所有的 Entity 和 Dao 接口，这就导致了一个关于可见性的问题：</p>
+<ul>
+<li>如果我们在最底层的共享模块中定义并实例化 AppDatabase，AppDatabase 就无法访问到位于应用模块和功能模块中定义的 Entity 和 Dao 接口，继而无法实例化各个 Dao 对象；</li>
+<li>而如果我们将所有的 Entity 和 Dao 接口也都放在共享模块中，那么又会破坏模块化的设计原则，导致本应定义在应用模块和功能模块中的代码被耦合到了共享模块中，产生代码污染；</li>
+<li>为了让 AppDatabase 能访问到所有的 Entity 和 Dao 接口，我们需要将其挪到最上层的应用模块中，但这样又会导致较下层的功能模块无法访问到 Room 实例化的 Dao 对象，无法进行数据操作。</li>
+</ul>
+<p>就这样，产生了一个先有鸡还是先有蛋的哲学问题：<br>AppDatabase 依赖各模块的 Entity 和 Dao 定义（所以 AppDatabase 应该放在顶层）；<br>各个模块又依赖 AppDatabase 对象提供的 Dao 实例对象（所以 AppDatabase 应该放在底层）。</p>
+<p>那么，AppDatabase、Entity 和 Dao 接口的定义应该放在哪里呢？</p>
+<h2 id="网上大佬的解决方案"><a href="#网上大佬的解决方案" class="headerlink" title="网上大佬的解决方案"></a>网上大佬的解决方案</h2><p>在探索这个问题如何解决的过程中，我发现了网上大佬的解决方案：<a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/post/7005135352604131358" >模块化架构下 Room 数据库的使用设计<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>简单引述一下：</p>
+<h3 id="方案一：在共享模块中定义整个-Room-数据库"><a href="#方案一：在共享模块中定义整个-Room-数据库" class="headerlink" title="方案一：在共享模块中定义整个 Room 数据库"></a>方案一：在共享模块中定义整个 Room 数据库</h3><p>将 App 中所有的 Entity 和 Dao 都定义在共享模块中，这种方法简单容易操作，但缺点之前也提到过，原本应该在各个模块内各自维护的代码都被统一下放到共享模块中，导致代码污染，背离模块化设计的初衷。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/db-in-multi-modules/solution1.webp"
+                     
+                ></p>
+<h3 id="方案二：在应用模块和功能模块中各自实例化自己的-Room-Database"><a href="#方案二：在应用模块和功能模块中各自实例化自己的-Room-Database" class="headerlink" title="方案二：在应用模块和功能模块中各自实例化自己的 Room Database"></a>方案二：在应用模块和功能模块中各自实例化自己的 Room Database</h3><p>这种方法将各个 Dao 和 Entity 保留在了各自的模块中，践行了模块化设计原则，避免了代码污染，但缺点是会导致多个 Room 数据库实例的创建，据文档所言会极大增加资源开销，还可能产生复杂的使用问题。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/db-in-multi-modules/solution2.webp"
+                     
+                ></p>
+<h3 id="方案三：在应用模块中定义-AppDatabase，在各个模块中定义各自的-Entity-和-Dao-接口"><a href="#方案三：在应用模块中定义-AppDatabase，在各个模块中定义各自的-Entity-和-Dao-接口" class="headerlink" title="方案三：在应用模块中定义 AppDatabase，在各个模块中定义各自的 Entity 和 Dao 接口"></a>方案三：在应用模块中定义 AppDatabase，在各个模块中定义各自的 Entity 和 Dao 接口</h3><p>这就是网上大佬最后得出的解决方案：</p>
+<ol>
+<li>在顶层应用模块中定义 AppDatabase，实例化所有的 Dao 接口</li>
+<li>在各个功能模块中定义各自的 Entity 和 Dao 接口</li>
+<li>在各个功能模块中定义获取 Dao 对象的功能接口，接口中通过 callback 字段缓存 Room 创建的 Dao 实例</li>
+<li>最后在 Application 中进行对各个模块的这种 Dao 对象获取接口进行实例化填充。</li>
+</ol>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/db-in-multi-modules/solution3.webp"
+                     
+                ></p>
+<p>我没有尝试这个方案，是因为直觉上认为这个方案存在缺点：</p>
+<ol>
+<li>应用层创建的 Dao 实例下放到各个模块的设计实现过于复杂，代码不直观，增加了维护难度</li>
+<li>我不喜欢这种基于全局单例的缓存设计</li>
+</ol>
+<p>我追求的设计是简单直观，减少引入不必要的复杂性，在尽可能少的代码实装下实现与这个方案相同的功能。</p>
+<h2 id="找到最终方案：Koin"><a href="#找到最终方案：Koin" class="headerlink" title="找到最终方案：Koin"></a>找到最终方案：Koin</h2><p>Koin 是一个轻量级的依赖注入框架，与 Dagger 和 Google 推荐的 Hilt 类似，但与后面两者相比，Koin 更加轻量易用，不需要复杂的配置就能实现基本的依赖注入功能，并且 <strong>Koin 是运行时注入，而 Dagger 与 Hilt 是编译时注入。</strong></p>
+<p>Koin 是 100% Kotlin 编写的第三方库，基于 Kotlin DSL 语法，可以用非常 Kotlin 风格的方式简单地定义依赖关系，并在运行时按需动态注入。</p>
+
+  <div class="note p-4 mb-4 rounded-small blue">
+    <p>Koin 是运行时动态注入的，而不是编译时注入，这意味着 Koin 不会在编译时检查依赖关系，不会由于模块间的相互依赖而导致编译失败。（在下文中会再详细说明）</p>
+
+  </div>
+
+<h3 id="简单说说-Koin-的使用方式"><a href="#简单说说-Koin-的使用方式" class="headerlink" title="简单说说 Koin 的使用方式"></a>简单说说 Koin 的使用方式</h3><p>Koin 的使用方式非常简单，主要分为以下几个步骤：</p>
+<ol>
+<li>在项目中添加 Koin 库的依赖</li>
+<li>定义 Koin 模块 (Module)</li>
+<li>定义依赖关系</li>
+<li>运行应用并动态完成依赖注入</li>
+</ol>
+<p><strong>定义 Koin Module</strong><br>Koin Module 简单理解是一个预定义的实例工厂池，这个工厂池是 App 全局共享的，里面存放了 App 中各处需要被注入的对象的实例化方法，Koin 默认通过对象的类型来进行依赖对象的匹配和注入。（根据需要也可以选择更复杂和精细的匹配模式）</p>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> appModule = module &#123;</span><br><span class="line">  <span class="comment">// 以工厂模式实例化自定义的 Printer 对象</span></span><br><span class="line">  factory &#123; Printer() &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>定义依赖注入</strong><br>在需要使用的地方通过 Koin API 注入对象实例，在 App 运行期间，Koin 会自动匹配、按需实例化并注入对应的对象实例。</p>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MainActivity</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">  <span class="comment">// 声明一个 Printer 类型变量，指定通过 Koin 注入来赋值</span></span><br><span class="line">  <span class="keyword">val</span> printer: Printer <span class="keyword">by</span> inject()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">      <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">      setContentView(R.layout.activity_main)</span><br><span class="line">  </span><br><span class="line">      <span class="comment">// 使用注入的 Printer 对象</span></span><br><span class="line">      printer.print(<span class="string">&quot;Hello, Koin!&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="使用-Koin-实现模块化架构中-Room-数据库的最佳实践"><a href="#使用-Koin-实现模块化架构中-Room-数据库的最佳实践" class="headerlink" title="使用 Koin 实现模块化架构中 Room 数据库的最佳实践"></a>使用 Koin 实现模块化架构中 Room 数据库的最佳实践</h3><p>我们将沿用上面方案三的思路：</p>
+
+  <div class="note p-4 mb-4 rounded-small blue">
+    <p>在应用模块中定义 AppDatabase，在各个功能模块中定义各自的 Entity 和 Dao 接口。</p>
+
+  </div>
+
+<p>但是我们不需要设计和定义将应用层中实例化的 Dao 对象下放到各个模块的方法，只需要在各个模块中需要使用 Dao 对象的地方指定依赖注入，交由 Koin 动态注入来实现即可。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/db-in-multi-modules/final-solution.png"
+                     
+                ></p>
+<p><strong>应用模块定义数据库，并创建数据库 Module</strong></p>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> appModule = module &#123;</span><br><span class="line">  <span class="comment">// 单例方式实例化数据库对象</span></span><br><span class="line">  single&lt;AppDatabase&gt; &#123;</span><br><span class="line">    Room.databaseBuilder(</span><br><span class="line">      androidContext(),</span><br><span class="line">      AppDatabase::<span class="keyword">class</span>.java,</span><br><span class="line">      AppDatabase.DATABASE_NAME</span><br><span class="line">    ).build()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 单例方式实例化 UserDao 对象</span></span><br><span class="line">  <span class="comment">// 这里的 UserDao 是在功能模块中定义的</span></span><br><span class="line">  single &#123; <span class="keyword">get</span>&lt;AppDatabase&gt;().userDao() &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>在 Application 中初始化 Module</strong></p>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyApplication</span> : <span class="type">Application</span>() &#123;</span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate()</span><br><span class="line"></span><br><span class="line">    startKoin &#123;</span><br><span class="line">      androidLogger()</span><br><span class="line">      androidContext(<span class="keyword">this</span><span class="symbol">@MyApplication</span>)</span><br><span class="line">      modules(appModule)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>在功能模块的 Repository 中注入 Dao 对象</strong></p>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在构造函数参数中声明对 Dao 的依赖</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserRepository</span>(<span class="keyword">private</span> <span class="keyword">val</span> userDao: UserDao) &#123;</span><br><span class="line">  <span class="function"><span class="keyword">fun</span> <span class="title">getAllUsers</span><span class="params">()</span></span>: Flow&lt;List&lt;User&gt;&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> userDao.getAll()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>在功能模块中定义 Repository 的 Module</strong></p>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> userModule = module &#123;</span><br><span class="line">  <span class="comment">// 通过 get() 匹配并注入与参数相同类型的实例</span></span><br><span class="line">  factory &#123; UserRepository(<span class="keyword">get</span>()) &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>在功能模块的 UI 层中注入 Repository 对象</strong></p>
+<div class="code-container" data-rel="Kotlin"><figure class="iseeu highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 ViewModel 中注入 Repository</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserViewModel</span>(</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">val</span> userRepository: UserRepository</span><br><span class="line">) : ViewModel() &#123;</span><br><span class="line">  <span class="keyword">val</span> allUsers: Flow&lt;List&lt;User&gt;&gt; = userRepository.getAllUsers()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 Activity 中注入 ViewModel</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserActivity</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">val</span> userViewModel: UserViewModel <span class="keyword">by</span> viewModel()</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">    setContentView(R.layout.activity_user)</span><br><span class="line"></span><br><span class="line">    userViewModel.allUsers.collect &#123; users -&gt;</span><br><span class="line">      <span class="comment">// 更新 UI</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+  <div class="note p-4 mb-4 rounded-small yellow">
+    <p>上面的代码并非完整代码，仅为说明而摘取的核心部分</p>
+
+  </div>
+
+
+<h4 id="纵观整个实现的依赖关系"><a href="#纵观整个实现的依赖关系" class="headerlink" title="纵观整个实现的依赖关系"></a>纵观整个实现的依赖关系</h4><ul>
+<li>应用模块中定义了 AppDatabase</li>
+<li>功能模块中定义了 Entity、Dao，上层的应用模块基于此进行实例化</li>
+<li>应用模块在 Koin Module 中实例化 AppDatabase 和 App 内所有的 Dao 对象</li>
+<li>功能模块根据需要，在 Repository 或其他类中注入 Dao 对象，利用 Dao 对象进行数据操作</li>
+</ul>
+<p>在这里，我们似乎遇到了一个循环依赖问题：</p>
+<ul>
+<li>应用模块依赖功能模块提供 Entity 和 Dao 接口的实现</li>
+<li>功能模块依赖应用模块提供 Dao 对象的实例化</li>
+</ul>
+<p>但实际上，Dao 对象的实例化和注入是由 Koin 在 App 运行时动态完成的，Koin 会在运行时自动解析依赖关系并实例化对象，因此不会出现编译期的循环依赖的问题。</p>
+
+  <div class="note p-4 mb-4 rounded-small green">
+    <p>Koin 是运行时动态注入的，而不是编译时注入，不会产生模块间的循环依赖问题导致编译失败。</p>
+
+  </div>
+
+<p>通过这种方式，我们在模块化架构中实现了 Room 数据库的定义和使用，避免了代码污染和复杂的对象传递设计，同时也保持了模块化设计的纯净。</p>
+<p>举一反三，除了 Room 数据库，对于 Retrofit 等其他常用库的使用也可以采用类似的方式进行依赖注入，Koin 提供了非常灵活和强大的依赖注入功能，可以帮助我们更好地实现模块化架构。</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> Koin 依赖注入: 在 Android 模块化项目中定义 Room 数据库的最佳实践</li>
+        <li><strong>Author:</strong> Wavky</li>
+        <li><strong>Created at
+                :</strong> 2025-04-05 00:06:06</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-06-16 19:17:16
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://wavky.top//db-in-multi-modules/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                All Rights Reserved &#169; Wavky
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Koin/">#Koin</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Room/">#Room</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/review2025/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">2025，回顾出走的 10 年</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/MemoryCard/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">猛男翻卡牌：Compose 也能做游戏！</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://comment.wavky.top/',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: ['https://unpkg.com/@waline/emojis@1.2.0/bmoji','https://unpkg.com/@waline/emojis@1.2.0/tieba','https://unpkg.com/@waline/emojis@1.2.0/tw-emoji'],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">Koin 依赖注入: 在 Android 模块化项目中定义 Room 数据库的最佳实践</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E6%9E%B6%E6%9E%84"><span class="nav-text">什么是模块化架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B-Room"><span class="nav-text">简单介绍一下 Room</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-text">使用方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%A8%A1%E5%9D%97%E5%8C%96%E6%9E%B6%E6%9E%84%E4%B8%AD%E7%9A%84%E4%BA%89%E8%AE%AE%E7%82%B9"><span class="nav-text">在模块化架构中的争议点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E4%B8%8A%E5%A4%A7%E4%BD%AC%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">网上大佬的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A%E5%9C%A8%E5%85%B1%E4%BA%AB%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%AE%9A%E4%B9%89%E6%95%B4%E4%B8%AA-Room-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">方案一：在共享模块中定义整个 Room 数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A%E5%9C%A8%E5%BA%94%E7%94%A8%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%90%84%E8%87%AA%E5%AE%9E%E4%BE%8B%E5%8C%96%E8%87%AA%E5%B7%B1%E7%9A%84-Room-Database"><span class="nav-text">方案二：在应用模块和功能模块中各自实例化自己的 Room Database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%89%EF%BC%9A%E5%9C%A8%E5%BA%94%E7%94%A8%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%AE%9A%E4%B9%89-AppDatabase%EF%BC%8C%E5%9C%A8%E5%90%84%E4%B8%AA%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%AE%9A%E4%B9%89%E5%90%84%E8%87%AA%E7%9A%84-Entity-%E5%92%8C-Dao-%E6%8E%A5%E5%8F%A3"><span class="nav-text">方案三：在应用模块中定义 AppDatabase，在各个模块中定义各自的 Entity 和 Dao 接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%BE%E5%88%B0%E6%9C%80%E7%BB%88%E6%96%B9%E6%A1%88%EF%BC%9AKoin"><span class="nav-text">找到最终方案：Koin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E8%AF%B4%E8%AF%B4-Koin-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-text">简单说说 Koin 的使用方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Koin-%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9D%97%E5%8C%96%E6%9E%B6%E6%9E%84%E4%B8%AD-Room-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-text">使用 Koin 实现模块化架构中 Room 数据库的最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%B5%E8%A7%82%E6%95%B4%E4%B8%AA%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB"><span class="nav-text">纵观整个实现的依赖关系</span></a></li></ol></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Wavky</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        6 posts in total
+                    </span>
+                    
+                        <span>
+                            14.4k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+
+</main>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Swup.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/utils.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/main.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/categoryList.js" ></script>
+
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/typed.js" ></script>
+
+
+
+
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/anime.min.js" ></script>
+
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+	
+</body>
+
+</html>

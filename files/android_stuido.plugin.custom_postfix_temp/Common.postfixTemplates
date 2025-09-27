@@ -1,0 +1,2 @@
+.surround : surround with
+    ANY   →  $other$ { $expr$ }
