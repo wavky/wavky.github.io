@@ -146,7 +146,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
 <meta property="article:published_time" content="2026-02-07T16:08:29.000Z">
-<meta property="article:modified_time" content="2026-02-07T17:06:37.717Z">
+<meta property="article:modified_time" content="2026-02-07T17:17:32.068Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Vercel">
 <meta property="article:tag" content="Netlify">
@@ -627,8 +627,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-02-08 02:06:37</span>
-            <span class="mobile">2026-02-08 02:06:37</span>
+            <span class="desktop">2026-02-08 02:17:32</span>
+            <span class="mobile">2026-02-08 02:17:32</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -682,12 +682,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3.8k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4.5k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>14 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>16 Mins</span>
         </span>
     
     
@@ -999,6 +999,82 @@
 <ul>
 <li>超出免费额度后按量计费，额外数据库 $0.5&#x2F;个，额外带宽 $0.03&#x2F;GB</li>
 </ul>
+<h3 id="平台内置存储服务"><a href="#平台内置存储服务" class="headerlink" title="平台内置存储服务"></a>平台内置存储服务</h3><p>除了自行接入第三方存储，部分部署平台也提供了开箱即用的存储服务，通过 HTTP API 访问，与各自的 Serverless 环境深度集成。</p>
+<p><strong>Vercel Storage：</strong></p>
+<p>Vercel 提供三种内置存储产品，均可在项目 Dashboard 中一键开通：</p>
+<table>
+<thead>
+<tr>
+<th>服务</th>
+<th>底层实现</th>
+<th>用途</th>
+<th>免费额度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vercel KV</td>
+<td>Upstash Redis</td>
+<td>键值缓存、会话、限流</td>
+<td>3 万次请求&#x2F;月，256 MB</td>
+</tr>
+<tr>
+<td>Vercel Postgres</td>
+<td>Neon Postgres</td>
+<td>关系型数据（用户、订单等）</td>
+<td>60 计算小时&#x2F;月，256 MB</td>
+</tr>
+<tr>
+<td>Vercel Blob</td>
+<td>Cloudflare R2</td>
+<td>文件存储（图片、附件等）</td>
+<td>存储空间需付费，读取免费</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Vercel 的存储服务本质上是对第三方产品的封装集成——KV 封装了 Upstash，Postgres 封装了 Neon，Blob 封装了 Cloudflare R2。好处是在 Vercel 环境中接入更方便（环境变量自动注入、SDK 集成），但免费额度可能比直接使用原服务更少。</p>
+</blockquote>
+<p><strong>Cloudflare Storage：</strong></p>
+<p>Cloudflare Pages 可搭配 Cloudflare 自家的存储服务使用：</p>
+<table>
+<thead>
+<tr>
+<th>服务</th>
+<th>类型</th>
+<th>用途</th>
+<th>免费额度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Workers KV</td>
+<td>全球分布式键值存储</td>
+<td>配置、缓存、会话</td>
+<td>10 万次读&#x2F;天，1 千次写&#x2F;天，1 GB</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>SQLite 边缘数据库</td>
+<td>关系型数据</td>
+<td>10 GB 存储，500 万行读&#x2F;天，10 万行写&#x2F;天</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>对象存储（S3 兼容）</td>
+<td>文件存储</td>
+<td>10 GB 存储，100 万次读&#x2F;月，10 万次写&#x2F;月</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Cloudflare 的存储服务免费额度较为慷慨，且与 Workers&#x2F;Pages 运行时原生集成，无需额外网络开销。</p>
+</blockquote>
+<p><strong>第三方 Serverless 数据库：</strong></p>
+<p>如果平台内置存储不满足需求，还可以接入独立的 Serverless 数据库服务，它们均提供 HTTP API，兼容所有部署平台：</p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://supabase.com/" >Supabase<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>：开源的 Firebase 替代品，提供 PostgreSQL 数据库 + 认证 + 实时订阅 + 文件存储，免费计划包含 500 MB 数据库 + 1 GB 文件存储</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.mongodb.com/atlas" >MongoDB Atlas<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>：MongoDB 官方云服务，免费提供 512 MB 共享集群（M0），适合文档型数据存储</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://turso.tech/" >Turso<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>：基于 libSQL（SQLite 分支）的边缘数据库，免费计划包含 9 GB 存储 + 500 个数据库，延迟极低</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://planetscale.com/" >PlanetScale<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>：基于 Vitess 的 Serverless MySQL，免费计划包含 5 GB 存储 + 10 亿行读&#x2F;月</li>
+</ul>
+<p>这些服务通过 HTTP&#x2F;REST API 或专用 SDK 访问，不依赖 TCP 长连接，因此在 Vercel、Cloudflare Pages 等 Serverless 环境中都能正常使用。</p>
 <h3 id="存储方案与部署平台的搭配"><a href="#存储方案与部署平台的搭配" class="headerlink" title="存储方案与部署平台的搭配"></a>存储方案与部署平台的搭配</h3><table>
 <thead>
 <tr>
@@ -1033,6 +1109,38 @@
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">—</td>
+</tr>
+<tr>
+<td>平台内置 KV</td>
+<td align="center">—</td>
+<td align="center">✅ Vercel KV</td>
+<td align="center">—</td>
+<td align="center">✅ Workers KV</td>
+<td align="center">—</td>
+</tr>
+<tr>
+<td>平台内置数据库</td>
+<td align="center">—</td>
+<td align="center">✅ Vercel Postgres</td>
+<td align="center">—</td>
+<td align="center">✅ D1</td>
+<td align="center">—</td>
+</tr>
+<tr>
+<td>平台对象存储</td>
+<td align="center">—</td>
+<td align="center">✅ Vercel Blob</td>
+<td align="center">—</td>
+<td align="center">✅ R2</td>
+<td align="center">—</td>
+</tr>
+<tr>
+<td>第三方 Serverless DB</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 </tbody></table>
 <hr>
@@ -1072,11 +1180,11 @@
 <td>无限制</td>
 </tr>
 <tr>
-<td>Redis 支持</td>
-<td>Upstash</td>
-<td>Upstash</td>
-<td>Upstash</td>
-<td>原生 Redis</td>
+<td>存储方案</td>
+<td>KV&#x2F;Postgres&#x2F;Blob + Upstash</td>
+<td>Upstash&#x2F;第三方</td>
+<td>KV&#x2F;D1&#x2F;R2 + Upstash</td>
+<td>原生 Redis&#x2F;自建 DB</td>
 <td>原生 Redis</td>
 </tr>
 <tr>
@@ -1203,7 +1311,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2026-02-08 02:06:37
+                    :</strong> 2026-02-08 02:17:32
             </li>
         
         <li>
@@ -1282,7 +1390,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">前端项目部署平台与技术概念速览</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%A6%82%E5%BF%B5"><span class="nav-text">技术概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSR%EF%BC%88Server-Side-Rendering%EF%BC%8C%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%EF%BC%89"><span class="nav-text">SSR（Server-Side Rendering，服务端渲染）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSG%EF%BC%88Static-Site-Generation%EF%BC%8C%E9%9D%99%E6%80%81%E7%AB%99%E7%82%B9%E7%94%9F%E6%88%90%EF%BC%89"><span class="nav-text">SSG（Static Site Generation，静态站点生成）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ISR%EF%BC%88Incremental-Static-Regeneration%EF%BC%8C%E5%A2%9E%E9%87%8F%E9%9D%99%E6%80%81%E5%86%8D%E7%94%9F%EF%BC%89"><span class="nav-text">ISR（Incremental Static Regeneration，增量静态再生）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serverless-Functions%EF%BC%88%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-text">Serverless Functions（无服务器函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Edge-Functions%EF%BC%88%E8%BE%B9%E7%BC%98%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-text">Edge Functions（边缘函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-js"><span class="nav-text">Next.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN%EF%BC%88Content-Delivery-Network%EF%BC%8C%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C%EF%BC%89"><span class="nav-text">CDN（Content Delivery Network，内容分发网络）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%B9%B3%E5%8F%B0"><span class="nav-text">部署平台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vercel"><span class="nav-text">Vercel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Netlify"><span class="nav-text">Netlify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cloudflare-Pages"><span class="nav-text">Cloudflare Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-%E8%87%AA%E6%89%98%E7%AE%A1"><span class="nav-text">Docker 自托管</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%AA%E4%BA%91%EF%BC%88Claw-Cloud-Run%EF%BC%89"><span class="nav-text">爪云（Claw Cloud Run）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88"><span class="nav-text">存储方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LocalStorage%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-text">LocalStorage（浏览器本地存储）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%EF%BC%88%E5%8E%9F%E7%94%9F%E8%87%AA%E5%BB%BA%EF%BC%89"><span class="nav-text">Redis（原生自建）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Upstash-Redis%EF%BC%88Serverless-%E6%89%98%E7%AE%A1%EF%BC%89"><span class="nav-text">Upstash Redis（Serverless 托管）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88%E4%B8%8E%E9%83%A8%E7%BD%B2%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E9%85%8D"><span class="nav-text">存储方案与部署平台的搭配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E5%8F%B0%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93"><span class="nav-text">平台对比总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BD%E5%86%85%E8%AE%BF%E9%97%AE%E9%97%AE%E9%A2%98"><span class="nav-text">国内访问问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9"><span class="nav-text">如何选择</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%A6%82%E5%BF%B5"><span class="nav-text">技术概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSR%EF%BC%88Server-Side-Rendering%EF%BC%8C%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%EF%BC%89"><span class="nav-text">SSR（Server-Side Rendering，服务端渲染）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSG%EF%BC%88Static-Site-Generation%EF%BC%8C%E9%9D%99%E6%80%81%E7%AB%99%E7%82%B9%E7%94%9F%E6%88%90%EF%BC%89"><span class="nav-text">SSG（Static Site Generation，静态站点生成）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ISR%EF%BC%88Incremental-Static-Regeneration%EF%BC%8C%E5%A2%9E%E9%87%8F%E9%9D%99%E6%80%81%E5%86%8D%E7%94%9F%EF%BC%89"><span class="nav-text">ISR（Incremental Static Regeneration，增量静态再生）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serverless-Functions%EF%BC%88%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-text">Serverless Functions（无服务器函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Edge-Functions%EF%BC%88%E8%BE%B9%E7%BC%98%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-text">Edge Functions（边缘函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-js"><span class="nav-text">Next.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN%EF%BC%88Content-Delivery-Network%EF%BC%8C%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C%EF%BC%89"><span class="nav-text">CDN（Content Delivery Network，内容分发网络）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%B9%B3%E5%8F%B0"><span class="nav-text">部署平台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vercel"><span class="nav-text">Vercel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Netlify"><span class="nav-text">Netlify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cloudflare-Pages"><span class="nav-text">Cloudflare Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-%E8%87%AA%E6%89%98%E7%AE%A1"><span class="nav-text">Docker 自托管</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%AA%E4%BA%91%EF%BC%88Claw-Cloud-Run%EF%BC%89"><span class="nav-text">爪云（Claw Cloud Run）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88"><span class="nav-text">存储方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LocalStorage%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-text">LocalStorage（浏览器本地存储）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%EF%BC%88%E5%8E%9F%E7%94%9F%E8%87%AA%E5%BB%BA%EF%BC%89"><span class="nav-text">Redis（原生自建）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Upstash-Redis%EF%BC%88Serverless-%E6%89%98%E7%AE%A1%EF%BC%89"><span class="nav-text">Upstash Redis（Serverless 托管）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E5%8F%B0%E5%86%85%E7%BD%AE%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1"><span class="nav-text">平台内置存储服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88%E4%B8%8E%E9%83%A8%E7%BD%B2%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E9%85%8D"><span class="nav-text">存储方案与部署平台的搭配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E5%8F%B0%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93"><span class="nav-text">平台对比总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BD%E5%86%85%E8%AE%BF%E9%97%AE%E9%97%AE%E9%A2%98"><span class="nav-text">国内访问问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9"><span class="nav-text">如何选择</span></a></li></ol>
 
 	</div>
 </div>
@@ -1313,7 +1421,7 @@
                     </span>
                     
                         <span>
-                            19.1k words in total
+                            19.8k words in total
                         </span>
                     
                 </p>
