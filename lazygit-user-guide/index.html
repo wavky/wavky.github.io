@@ -146,7 +146,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://wavky.top/img/profile.png">
 <meta property="article:published_time" content="2026-02-08T08:15:01.000Z">
-<meta property="article:modified_time" content="2026-02-09T07:03:14.267Z">
+<meta property="article:modified_time" content="2026-02-12T07:58:14.020Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="CLI">
@@ -539,8 +539,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-02-09 16:03:14</span>
-            <span class="mobile">2026-02-09 16:03:14</span>
+            <span class="desktop">2026-02-12 16:58:14</span>
+            <span class="mobile">2026-02-12 16:58:14</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -582,12 +582,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.5k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.3k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>6 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>8 Mins</span>
         </span>
     
     
@@ -864,8 +864,14 @@
 <td>Move up</td>
 <td>将提交向上移动（即更晚执行）</td>
 </tr>
+<tr>
+<td align="center"><code>i</code></td>
+<td>Start interactive rebase</td>
+<td>进入交互式rebase模式</td>
+</tr>
 </tbody></table>
-<p>操作流程：选中想要修改的提交 → 按对应快捷键标记操作 → lazygit 自动执行rebase。整个过程不需要手动编辑 rebase todo 文件。</p>
+<p>上表中 <code>e</code>&#x2F;<code>s</code>&#x2F;<code>f</code>&#x2F;<code>d</code> 等快捷键会<strong>立即对选中的单个提交执行操作</strong>，lazygit 自动完成 rebase，适合快速处理单个提交。</p>
+<p>而 <code>i</code> 则是进入<strong>交互式 rebase 模式</strong>：先在多个提交上分别标记不同操作（pick、squash、fixup、drop 等），全部标记完成后再统一执行。适合需要一次性调整多个提交的场景。</p>
 <hr>
 <h2 id="Cherry-pick"><a href="#Cherry-pick" class="headerlink" title="Cherry-pick"></a>Cherry-pick</h2><p>在 Commits 面板中：</p>
 <ol>
@@ -921,6 +927,78 @@
 <td>重命名Stash</td>
 </tr>
 </tbody></table>
+<hr>
+<h2 id="Worktree（工作树）"><a href="#Worktree（工作树）" class="headerlink" title="Worktree（工作树）"></a>Worktree（工作树）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>Git worktree 允许你在同一个仓库下同时签出多个分支到不同目录。每个 worktree 拥有独立的工作区和暂存区，但共享同一份 Git 历史。</p>
+<p>典型场景：</p>
+<ul>
+<li><strong>并行开发</strong>：在开发新功能的同时，需要切到另一个分支修 bug，又不想 stash 或提交半成品代码</li>
+<li><strong>代码对比</strong>：同时打开两个分支的代码进行参照</li>
+<li><strong>长时间构建</strong>：一个 worktree 在跑构建，另一个继续开发</li>
+</ul>
+<p>相比反复 <code>git stash</code> &#x2F; <code>git checkout</code>，worktree 不需要中断当前工作，每个分支都保持独立的工作区状态。</p>
+<h3 id="在-Lazygit-中使用-Worktree"><a href="#在-Lazygit-中使用-Worktree" class="headerlink" title="在 Lazygit 中使用 Worktree"></a>在 Lazygit 中使用 Worktree</h3><p>Worktrees 是 Files 面板（按 <code>2</code>）的一个子标签页，按 <code>]</code> 切换即可找到。即使没有额外创建 worktree，该标签页也始终存在，会显示当前主工作区。</p>
+<p><strong>Worktrees 面板快捷键：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>n</code></td>
+<td>创建新 worktree</td>
+</tr>
+<tr>
+<td align="center"><code>space</code></td>
+<td>切换到选中的 worktree</td>
+</tr>
+<tr>
+<td align="center"><code>o</code></td>
+<td>在编辑器中打开 worktree</td>
+</tr>
+<tr>
+<td align="center"><code>d</code></td>
+<td>删除选中的 worktree</td>
+</tr>
+</tbody></table>
+<p><strong>从其他面板创建 Worktree：</strong></p>
+<p>在 Branches、Commits、Tags、Reflog 等面板中，按 <code>w</code> 可以打开 worktree 选项菜单，快速基于选中的分支&#x2F;提交创建 worktree。菜单提供两种创建方式：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>对应命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Create worktree from &lt;ref&gt;</td>
+<td><code>git worktree add</code></td>
+<td>关联分支：在新目录签出指定分支，可选创建新分支。新 worktree 有明确的分支归属，提交直接推进该分支</td>
+</tr>
+<tr>
+<td>Create worktree from &lt;ref&gt; (detached)</td>
+<td><code>git worktree add --detach</code></td>
+<td>分离 HEAD：在新目录签出指定提交，但不关联任何分支。适合临时查看代码、测试或实验，不会影响现有分支</td>
+</tr>
+</tbody></table>
+<p>简单来说：需要在新 worktree 上持续开发就用普通模式，只是临时看看代码或跑个测试就用 detached 模式。</p>
+<h3 id="操作流程示例"><a href="#操作流程示例" class="headerlink" title="操作流程示例"></a>操作流程示例</h3><p><strong>创建并切换到新 worktree：</strong></p>
+<ol>
+<li>在 Branches 面板（按 <code>3</code>）选中目标分支</li>
+<li>按 <code>w</code> 打开 worktree 选项</li>
+<li>选择 “Create worktree from …”，指定目录路径</li>
+<li>lazygit 会自动切换到新创建的 worktree</li>
+</ol>
+<p><strong>在 worktree 之间切换：</strong></p>
+<ol>
+<li>进入 Worktrees 面板</li>
+<li>用 <code>↑</code> &#x2F; <code>↓</code> 选择目标 worktree</li>
+<li>按 <code>space</code> 切换过去，lazygit 会重新加载对应目录的工作区</li>
+</ol>
+<p><strong>清理不用的 worktree：</strong></p>
+<p>在 Worktrees 面板中选中后按 <code>d</code> 即可删除，lazygit 会同时清理工作目录和 <code>.git</code> 中的 worktree 元数据。</p>
 <hr>
 <h2 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h2><p>当合并或rebase产生冲突时，lazygit 会在 Files 面板中标记冲突文件。按 <code>enter</code> 进入文件后，可以可视化地选择保留哪一方的更改：</p>
 <table>
@@ -1119,6 +1197,38 @@
 <td align="center"><code>ctrl+j/k</code></td>
 <td>上下移动提交</td>
 </tr>
+<tr>
+<td align="center"><code>i</code></td>
+<td>进入交互式 rebase 模式</td>
+</tr>
+</tbody></table>
+<h3 id="Worktrees-面板"><a href="#Worktrees-面板" class="headerlink" title="Worktrees 面板"></a>Worktrees 面板</h3><table>
+<thead>
+<tr>
+<th align="center">快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>n</code></td>
+<td>新建 worktree</td>
+</tr>
+<tr>
+<td align="center"><code>space</code></td>
+<td>切换到 worktree</td>
+</tr>
+<tr>
+<td align="center"><code>o</code></td>
+<td>在编辑器中打开</td>
+</tr>
+<tr>
+<td align="center"><code>d</code></td>
+<td>删除 worktree</td>
+</tr>
+<tr>
+<td align="center"><code>w</code></td>
+<td>Worktree 选项（Branches&#x2F;Commits 等面板通用）</td>
+</tr>
 </tbody></table>
 <hr>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>lazygit 的配置文件路径因平台而异，执行 <code>lazygit -cd</code> 可以快速查看当前平台的配置目录：</p>
@@ -1161,7 +1271,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2026-02-09 16:03:14
+                    :</strong> 2026-02-12 16:58:14
             </li>
         
         <li>
@@ -1240,7 +1350,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">Lazygit 使用指南</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E6%A6%82%E8%A7%88"><span class="nav-text">界面概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="nav-text">基础操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9A%82%E5%AD%98%E4%B8%8E%E6%8F%90%E4%BA%A4"><span class="nav-text">文件暂存与提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E9%80%81%E4%B8%8E%E6%8B%89%E5%8F%96"><span class="nav-text">推送与拉取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-text">其他文件操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-text">分支管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F-Rebase"><span class="nav-text">交互式 Rebase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cherry-pick"><span class="nav-text">Cherry-pick</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stash-%E7%AE%A1%E7%90%86"><span class="nav-text">Stash 管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3"><span class="nav-text">冲突解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%80%9F%E6%9F%A5"><span class="nav-text">快捷键速查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80"><span class="nav-text">全局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Files-%E9%9D%A2%E6%9D%BF"><span class="nav-text">Files 面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Branches-%E9%9D%A2%E6%9D%BF"><span class="nav-text">Branches 面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Commits-%E9%9D%A2%E6%9D%BF"><span class="nav-text">Commits 面板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E6%A6%82%E8%A7%88"><span class="nav-text">界面概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="nav-text">基础操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9A%82%E5%AD%98%E4%B8%8E%E6%8F%90%E4%BA%A4"><span class="nav-text">文件暂存与提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E9%80%81%E4%B8%8E%E6%8B%89%E5%8F%96"><span class="nav-text">推送与拉取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-text">其他文件操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-text">分支管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F-Rebase"><span class="nav-text">交互式 Rebase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cherry-pick"><span class="nav-text">Cherry-pick</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stash-%E7%AE%A1%E7%90%86"><span class="nav-text">Stash 管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Worktree%EF%BC%88%E5%B7%A5%E4%BD%9C%E6%A0%91%EF%BC%89"><span class="nav-text">Worktree（工作树）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8-Lazygit-%E4%B8%AD%E4%BD%BF%E7%94%A8-Worktree"><span class="nav-text">在 Lazygit 中使用 Worktree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B"><span class="nav-text">操作流程示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3"><span class="nav-text">冲突解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%80%9F%E6%9F%A5"><span class="nav-text">快捷键速查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80"><span class="nav-text">全局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Files-%E9%9D%A2%E6%9D%BF"><span class="nav-text">Files 面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Branches-%E9%9D%A2%E6%9D%BF"><span class="nav-text">Branches 面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Commits-%E9%9D%A2%E6%9D%BF"><span class="nav-text">Commits 面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Worktrees-%E9%9D%A2%E6%9D%BF"><span class="nav-text">Worktrees 面板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a></li></ol>
 
 	</div>
 </div>
@@ -1271,7 +1381,7 @@
                     </span>
                     
                         <span>
-                            23.3k words in total
+                            24k words in total
                         </span>
                     
                 </p>
