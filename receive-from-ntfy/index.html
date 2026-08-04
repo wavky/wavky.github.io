@@ -121,12 +121,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     
-        
-        
-        
-            <link rel="preconnect" href="https://evan.beee.top" crossorigin>
-        
-    
     <!--- Seo Part-->
     
     <link rel="canonical" href="https://wavky.com/receive-from-ntfy/"/>
@@ -146,7 +140,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://wavky.com/img/profile.png">
 <meta property="article:published_time" content="2026-08-02T05:28:27.000Z">
-<meta property="article:modified_time" content="2026-08-02T09:23:32.397Z">
+<meta property="article:modified_time" content="2026-08-04T17:02:45.702Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="自制工具">
 <meta property="article:tag" content="插件">
@@ -168,7 +162,9 @@
         
     </title>
 
-    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/fonts/Chillax/chillax.css">
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
 
     <!--- Inject Part-->
     
@@ -178,11 +174,17 @@
 
 
     
-        <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/css/build/tailwind.css">
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
     
 
-    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/fonts/GeistMono/geist-mono.css">
-    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/fonts/Geist/geist.css">
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
     <!--- Font Part-->
     
     
@@ -199,10 +201,18 @@
   </script>
     
     <!--- Fontawesome Part-->
-    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/fontawesome/fontawesome.min.css">
-    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/fontawesome/brands.min.css">
-    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/fontawesome/solid.min.css">
-    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/fontawesome/regular.min.css">
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
     
     
     
@@ -529,8 +539,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-08-02 18:23:32</span>
-            <span class="mobile">2026-08-02 18:23:32</span>
+            <span class="desktop">2026-08-05 02:02:45</span>
+            <span class="mobile">2026-08-05 02:02:45</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -585,6 +595,7 @@
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
 			<p>又是一个「顺手做个小工具」的周末。这次的产物是一个 Firefox 插件——<strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/wavky/Receive-from-ntfy" >ntfy 叮 (Receive from ntfy)<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></strong>：常驻在浏览器后台，监听 <a class="link"   target="_blank" rel="noopener" href="https://ntfy.sh/" >ntfy.sh<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 上你订阅的公共频道，一来消息就弹一条桌面通知，顺带「叮」一声。</p>
+<p><a href="https://addons.mozilla.org/firefox/addon/receive-from-ntfy/" target="_blank" rel="noopener" aria-label="获取 Firefox 扩展" style="display:inline-block;line-height:0;text-decoration:none;border:none;"><span style="display:inline-block;width:204px;height:48px;background:url(/receive-from-ntfy/firefox-badge.png) center/contain no-repeat;"></span></a></p>
 <p>有意思的是节奏：从下午翻出第一个文件开始动手，到凌晨把打包好的源码丢进 Firefox 的 AMO 商店排队审核，中间连写代码带做图标、截图、三语文案、README，满打满算半天。在 Claude Code 的助力下，这种「一个念头到能提交上架」的距离被压得非常短。</p>
 <p><img  
                      lazyload
@@ -619,7 +630,7 @@
 <h2 id="半天的意义"><a href="#半天的意义" class="headerlink" title="半天的意义"></a>半天的意义</h2><p>回过头看，真正被压缩的不是「写代码」这一步，而是它周围那一圈琐碎但绕不开的东西：绘制矢量图标、搜集浏览器插件的架构接口规范、调研 ntfy 消息特性和对接方式、界面多语言文案和翻译、截图加工、写用户向的 README、搞清楚 Firefox 插件提交的方式和审查规则……过去这些七零八碎加起来，往往比核心逻辑还耗时间。更别提对于 Android 工程师来说，JS 框架、MV2、i18n 等前端技术概念，基本上都在我一知半解的知识盲区里。</p>
 <p>但现在，我只需要像个监工一样端着杯茶，看 AI 评估总结方案让我拍板，然后吭哧吭哧开始干活，干得不好给他骂骂咧咧指点两句回炉重练，直至产出像模像样的产品，一个晚上就能把它们连同代码一起收尾，然后安心地丢进审核队列去睡觉，这种近乎零成本的跨赛道的体验，是这个年代技术赋予的专属特权。</p>
 <p>我越来越觉得，这正是这个时代对「懂技术的产品经理」的意义所在：AI 拉平的是「某一门具体技术的实现门槛」，没有拉平的是「判断什么值得做、怎么做才算做对」的能力。前者曾经是一堵硬墙，逼着你要么已经是专业赛道选手、要么一头扎进文档死磕，如今更像随时可以调用的产能；而后者需要基于工程直觉决定取舍的分寸，和对体验的挑剔，依然得由人来提供，也因此比过去更值钱。（这几段都是 AI 在胡扯）</p>
-<p>插件已经提交到 <a class="link"   target="_blank" rel="noopener" href="https://addons.mozilla.org/firefox/addon/receive-from-ntfy/" >Firefox Add-ons<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 等待审核，首次人工审核周期不太固定，过审后就能直接安装了。</p>
+<p>插件已经通过审核，上架在 <a class="link"   target="_blank" rel="noopener" href="https://addons.mozilla.org/firefox/addon/receive-from-ntfy/" >Firefox Add-ons<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 上，点开就能直接安装。</p>
 <p>代码也开源在 <a class="link"   target="_blank" rel="noopener" href="https://github.com/wavky/Receive-from-ntfy" >GitHub<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 上，MIT 协议，欢迎 star &#x2F; issue &#x2F; PR。</p>
 <p>如果你也在用 ntfy，欢迎试试让浏览器帮你接住那些「叮」。</p>
 
@@ -636,7 +647,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2026-08-02 18:23:32
+                    :</strong> 2026-08-05 02:02:45
             </li>
         
         <li>
@@ -907,7 +918,19 @@
 </main>
 
 
-<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/libs/Swup.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
 <script>
     const swup = new Swup({
         plugins: [
@@ -930,44 +953,84 @@
 
 
 
-	<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/utils.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/main.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/layouts/categoryList.js" ></script>
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
 
+<script src="/js/build/utils.js" type="module"></script>
 
+<script src="/js/build/main.js" type="module"></script>
 
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
 
-    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/tools/codeBlock.js" ></script>
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
 
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
 
-
-    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/layouts/lazyload.js" ></script>
-
-
-
-    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/tools/runtime.js" ></script>
-    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/libs/odometer.min.js" ></script>
-    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/assets/odometer-theme-minimal.css">
-
-
-
-  <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/libs/Typed.min.js" ></script>
-  <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/plugins/typed.js" ></script>
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
 
 
 
 
 
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
 
 
-    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/libs/anime.min.js" ></script>
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
 
 
 
 
-    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
 
 
-<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
-<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.5/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/libs/anime.min.js"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
 
 
 
