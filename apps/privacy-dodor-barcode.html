@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Wavky">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set data attribute for CSS variables
+                root.setAttribute("data-theme", theme);
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes once DOM is ready
+            if (document.readyState !== "loading") {
+                document.body.classList.add(theme + "-mode");
+            } else {
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.body.classList.add(theme + "-mode");
+                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Critical CSS to prevent flash -->
+    <style>
+        :root[data-theme="dark"] {
+            --background-color: #202124;
+            --background-color-transparent: rgba(32, 33, 36, 0.6);
+            --second-background-color: #2d2e32;
+            --third-background-color: #34353a;
+            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #ffffff;
+            --second-text-color: #eeeeee;
+            --third-text-color: #bebec6;
+            --fourth-text-color: #999999;
+            --default-text-color: #bebec6;
+            --invert-text-color: #373D3F;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(255, 255, 255, 0.08);
+            --shadow-color-2: rgba(255, 255, 255, 0.05);
+        }
+        
+        :root[data-theme="light"] {
+            --background-color: #fff;
+            --background-color-transparent: rgba(255, 255, 255, 0.6);
+            --second-background-color: #f8f8f8;
+            --third-background-color: #f2f2f2;
+            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #16171a;
+            --second-text-color: #2f3037;
+            --third-text-color: #5e5e5e;
+            --fourth-text-color: #eeeeee;
+            --default-text-color: #373D3F;
+            --invert-text-color: #bebec6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(0, 0, 0, 0.08);
+            --shadow-color-2: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+        
+        /* Apply body classes as soon as DOM is ready */
+        :root[data-theme="dark"] body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+    </style>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://wavky.com/apps/privacy-dodor-barcode.html"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="勤劳的 Android 打工人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dodor Barcode Privacy Policy &#x2F; 多多条形码 隐私政策">
+<meta property="og:url" content="https://wavky.com/apps/privacy-dodor-barcode.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="勤劳的 Android 打工人">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wavky.com/img/profile.png">
+<meta property="article:published_time" content="2026-09-15T15:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-15T16:22:49.707Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wavky.com/img/profile.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/img/favicon/favicon.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#D1D2B6">
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Dodor Barcode Privacy Policy / 多多条形码 隐私政策 | Wavky
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"wavky.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["距离退休还剩: 29年"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":4,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"all_rights_reserved"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#D1D2B6","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/img/profile.png","description":"勤劳的 Android 打工人"},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Wavky","subtitle":{"text":["Android 核动力驴"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":30,"backing_speed":15,"starting_delay":500,"backing_delay":3000,"loop":false,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/wavky","instagram":null,"zhihu":null,"twitter":null,"email":"contact@wavky.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Tutorial":{"path":"/tutorial","icon":"fa-solid fa-book-open"},"Apps":{"icon":"fa-brands fa-android","submenus":{"多多收银":"https://dodor.app","多多条形码 隐私政策":"/apps/privacy-dodor-barcode"}},"Contact Me":{"icon":"fa-regular fa-id-badge","submenus":{"GitHub":"https://github.com/wavky","Email":"mailto:contact@wavky.com"}}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/2/9 12:00:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Wavky
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tutorial"
+                                        >
+                                    <i class="fa-solid fa-book-open fa-fw"></i>
+                                    TUTORIAL
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-brands fa-android fa-fw"></i>
+                                    APPS
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://dodor.app">
+                                                    多多收银
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/apps/privacy-dodor-barcode">
+                                                    多多条形码 隐私政策
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-id-badge fa-fw"></i>
+                                    CONTACT ME
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/wavky">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="mailto:contact@wavky.com">
+                                                    EMAIL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tutorial"
+                        >
+                            <span>
+                                TUTORIAL
+                            </span>
+                            
+                                <i class="fa-solid fa-book-open fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Apps"
+                        >
+                            <span>
+                                APPS
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Apps">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://dodor.app">多多收银</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/apps/privacy-dodor-barcode">多多条形码 隐私政策</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Contact Me"
+                        >
+                            <span>
+                                CONTACT ME
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Contact Me">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/wavky">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="mailto:contact@wavky.com">EMAIL</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">8</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">13</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="page-template-container">
+	
+
+	
+
+	<div class="page-template-content markdown-body">
+		
+		<h1>Dodor Barcode Privacy Policy / 多多条形码 隐私政策</h1>
+		
+
+		<h2 id="English"><a href="#English" class="headerlink" title="English"></a>English</h2><p>Last Updated: 2026-09-16</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Welcome to Dodor Barcode. We take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information. By using this app, you agree to the data practices described in this Privacy Policy.</p>
+<h3 id="About-the-App"><a href="#About-the-App" class="headerlink" title="About the App"></a>About the App</h3><p>Dodor Barcode is a lightweight companion tool for Dodor POS: enter or randomly generate a set of digits, pick a barcode symbology, and print the resulting barcode through a paired Bluetooth thermal printer. The app works entirely offline for its core features and does not involve any checkout, inventory, or transaction concepts.</p>
+<h3 id="Information-Collection-and-Use"><a href="#Information-Collection-and-Use" class="headerlink" title="Information Collection and Use"></a>Information Collection and Use</h3><h4 id="1-Local-Data"><a href="#1-Local-Data" class="headerlink" title="1. Local Data"></a>1. Local Data</h4><p>This app stores the following data on your device:</p>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Description</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Barcode Records</td>
+<td>Barcode name, digits, symbology, and creation time</td>
+<td>Barcode history, reprinting</td>
+</tr>
+<tr>
+<td>Printer Binding Info</td>
+<td>Bluetooth device name, MAC address, custom alias, paper width</td>
+<td>Connecting to and printing via your bound printer</td>
+</tr>
+</tbody></table>
+<p><strong>Data Storage</strong>: This data is stored only on your local device and is never uploaded to any server. When you uninstall the app or clear app data, this data will be permanently deleted.</p>
+<h4 id="2-Automatically-Collected-Data"><a href="#2-Automatically-Collected-Data" class="headerlink" title="2. Automatically Collected Data"></a>2. Automatically Collected Data</h4><p>To improve app quality and user experience, we use the following third-party analytics services:</p>
+<p><strong>Firebase Analytics</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data Collected</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>App usage statistics</td>
+<td>Understand feature usage to improve the product</td>
+</tr>
+<tr>
+<td>Device information</td>
+<td>Device model, OS version</td>
+</tr>
+<tr>
+<td>App version</td>
+<td>Track version distribution</td>
+</tr>
+<tr>
+<td>Approximate location</td>
+<td>Country&#x2F;region level (based on IP address)</td>
+</tr>
+</tbody></table>
+<p><strong>Firebase Crashlytics</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data Collected</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Crash logs</td>
+<td>Identify and fix app issues</td>
+</tr>
+<tr>
+<td>Crash stack traces</td>
+<td>Locate code problems</td>
+</tr>
+<tr>
+<td>Device state information</td>
+<td>Understand device environment when crashes occur</td>
+</tr>
+</tbody></table>
+<p><strong>Note</strong>: All automatically collected data is anonymous and does not include any information that directly identifies you personally.</p>
+<h4 id="3-Version-Check-Requests"><a href="#3-Version-Check-Requests" class="headerlink" title="3. Version Check Requests"></a>3. Version Check Requests</h4><p>This app periodically sends a request to our server to fetch a static configuration file, used only to check whether a newer app version is available. This request does not include any personal or device-identifying information.</p>
+<h3 id="Data-Sharing-and-Disclosure"><a href="#Data-Sharing-and-Disclosure" class="headerlink" title="Data Sharing and Disclosure"></a>Data Sharing and Disclosure</h3><ul>
+<li>We <strong>do not sell</strong> your personal data</li>
+<li>We <strong>do not share</strong> personally identifiable information with third parties</li>
+<li>Firebase services are provided by Google and are subject to <a class="link"   target="_blank" rel="noopener" href="https://policies.google.com/privacy" >Google’s Privacy Policy<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>We may disclose information when required by law</li>
+</ul>
+<h3 id="App-Permissions"><a href="#App-Permissions" class="headerlink" title="App Permissions"></a>App Permissions</h3><p>This app may request the following permission:</p>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Purpose</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bluetooth (Nearby devices)</td>
+<td>Connect to and print via your Bluetooth thermal printer</td>
+<td>Optional (only needed to print)</td>
+</tr>
+</tbody></table>
+<h3 id="User-Choices-and-Controls"><a href="#User-Choices-and-Controls" class="headerlink" title="User Choices and Controls"></a>User Choices and Controls</h3><ol>
+<li><strong>Delete local data</strong>: Clear app data in device settings or uninstall the app</li>
+<li><strong>Limit analytics data collection</strong>: Limit ad tracking in device settings</li>
+<li><strong>Manage permissions</strong>: Revoke app permissions at any time in device settings</li>
+</ol>
+<h3 id="Data-Retention"><a href="#Data-Retention" class="headerlink" title="Data Retention"></a>Data Retention</h3><ul>
+<li><strong>Local data</strong>: Retained until you actively delete it or uninstall the app</li>
+<li><strong>Analytics data</strong>: Handled according to Google Firebase’s data retention policy (typically 14 months)</li>
+</ul>
+<h3 id="Data-Security"><a href="#Data-Security" class="headerlink" title="Data Security"></a>Data Security</h3><ul>
+<li>Core barcode and printer data is stored locally only and is not transmitted over the network</li>
+<li>Analytics data is transmitted using HTTPS encryption</li>
+<li>Regular app updates to fix security vulnerabilities</li>
+</ul>
+<h3 id="Children’s-Privacy"><a href="#Children’s-Privacy" class="headerlink" title="Children’s Privacy"></a>Children’s Privacy</h3><p>This app is not designed for children under 13, and we do not knowingly collect personal information from children. If you are a parent or guardian and discover that your child has provided us with personal information, please contact us.</p>
+<h3 id="Changes-to-This-Privacy-Policy"><a href="#Changes-to-This-Privacy-Policy" class="headerlink" title="Changes to This Privacy Policy"></a>Changes to This Privacy Policy</h3><p>We may update this Privacy Policy from time to time. Updated policies will be posted within the app or on this page with an updated “Last Updated” date. For significant changes, we will notify you through in-app notifications or other means. Continued use of the app indicates your acceptance of the updated Privacy Policy.</p>
+<h3 id="Contact-Us"><a href="#Contact-Us" class="headerlink" title="Contact Us"></a>Contact Us</h3><p>If you have any questions, comments, or requests regarding this Privacy Policy, please contact us:</p>
+<ul>
+<li><strong>Email</strong>: <a class="link"   href="mailto:&#99;&#x6f;&#x6e;&#x74;&#97;&#x63;&#116;&#64;&#x64;&#x6f;&#100;&#x6f;&#x72;&#46;&#97;&#112;&#x70;" >contact@dodor.app<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+<p>We will respond to your request within a reasonable timeframe.</p>
+<h3 id="Google-Play-Data-Safety-Supplement"><a href="#Google-Play-Data-Safety-Supplement" class="headerlink" title="Google Play Data Safety Supplement"></a>Google Play Data Safety Supplement</h3><p>For ease of completing the Google Play Console Data Safety form, here is a data collection summary:</p>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Collected</th>
+<th>Shared</th>
+<th>Optional</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Location</td>
+<td>Approximate (country level)</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>App activity</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>App info</td>
+<td>Crash logs</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Device IDs</td>
+<td>Yes (Android ID)</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Personal info &#x2F; Financial &#x2F; Photos &#x2F; Contacts, etc.</td>
+<td>No</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Data is encrypted in transit</li>
+<li>Users can request data deletion</li>
+<li>No user data is shared with third parties</li>
+</ul>
+<hr>
+<h2 id="简体中文"><a href="#简体中文" class="headerlink" title="简体中文"></a>简体中文</h2><p>最后更新：2026-09-16</p>
+<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>欢迎使用多多条形码。我们非常重视您的隐私保护。本隐私政策说明我们如何收集、使用和保护您的信息。使用本应用即表示您同意本隐私政策中描述的数据处理方式。</p>
+<h3 id="应用概述"><a href="#应用概述" class="headerlink" title="应用概述"></a>应用概述</h3><p>多多条形码是「多多收银 DodorPos」的配套小工具：输入或随机生成一组数字、选择条码编码方式，即可生成条形码并通过已绑定的蓝牙热敏打印机打印出来。本应用核心功能完全离线可用，不涉及收银、商品、交易等业务概念。</p>
+<h3 id="信息收集与使用"><a href="#信息收集与使用" class="headerlink" title="信息收集与使用"></a>信息收集与使用</h3><h4 id="1-本地数据"><a href="#1-本地数据" class="headerlink" title="1. 本地数据"></a>1. 本地数据</h4><p>本应用会在您的设备上存储以下数据：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>说明</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>条码记录</td>
+<td>条码名称、数字内容、编码方式、创建时间</td>
+<td>条码历史记录、重新打印</td>
+</tr>
+<tr>
+<td>打印机绑定信息</td>
+<td>蓝牙设备名称、MAC 地址、自定义别名、纸宽</td>
+<td>连接并通过已绑定打印机打印</td>
+</tr>
+</tbody></table>
+<p><strong>数据存储说明</strong>：这些数据仅存储在您的设备本地，不会上传到任何服务器。当您卸载应用或清除应用数据时，这些数据将被永久删除。</p>
+<h4 id="2-自动收集的数据"><a href="#2-自动收集的数据" class="headerlink" title="2. 自动收集的数据"></a>2. 自动收集的数据</h4><p>为了改进应用质量和用户体验，我们使用以下第三方分析服务：</p>
+<p><strong>Firebase Analytics（应用分析）</strong></p>
+<table>
+<thead>
+<tr>
+<th>收集的数据</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>应用使用统计</td>
+<td>了解功能使用情况以改进产品</td>
+</tr>
+<tr>
+<td>设备信息</td>
+<td>设备型号、操作系统版本</td>
+</tr>
+<tr>
+<td>应用版本</td>
+<td>追踪版本分布</td>
+</tr>
+<tr>
+<td>大致位置</td>
+<td>国家&#x2F;地区级别（基于 IP 地址）</td>
+</tr>
+</tbody></table>
+<p><strong>Firebase Crashlytics（崩溃分析）</strong></p>
+<table>
+<thead>
+<tr>
+<th>收集的数据</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>崩溃日志</td>
+<td>识别和修复应用问题</td>
+</tr>
+<tr>
+<td>崩溃堆栈跟踪</td>
+<td>定位代码问题</td>
+</tr>
+<tr>
+<td>设备状态信息</td>
+<td>了解崩溃发生时的设备环境</td>
+</tr>
+</tbody></table>
+<p><strong>说明</strong>：以上自动收集的数据均为匿名数据，不包含任何可直接识别您个人身份的信息。</p>
+<h4 id="3-版本检查请求"><a href="#3-版本检查请求" class="headerlink" title="3. 版本检查请求"></a>3. 版本检查请求</h4><p>本应用会定期向我们的服务器发送请求，拉取一份静态配置文件，仅用于检查是否有新版本可用。该请求不包含任何个人信息或设备识别信息。</p>
+<h3 id="数据共享与披露"><a href="#数据共享与披露" class="headerlink" title="数据共享与披露"></a>数据共享与披露</h3><ul>
+<li>我们<strong>不会出售</strong>您的个人数据</li>
+<li>我们<strong>不会</strong>与第三方共享可识别个人身份的信息</li>
+<li>Firebase 服务由 Google 提供，相关数据处理受 <a class="link"   target="_blank" rel="noopener" href="https://policies.google.com/privacy" >Google 隐私政策<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 约束</li>
+<li>我们可能在法律要求的情况下披露信息</li>
+</ul>
+<h3 id="应用权限"><a href="#应用权限" class="headerlink" title="应用权限"></a>应用权限</h3><p>本应用可能请求以下权限：</p>
+<table>
+<thead>
+<tr>
+<th>权限</th>
+<th>用途</th>
+<th>是否必需</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>蓝牙（附近的设备）</td>
+<td>连接并通过蓝牙热敏打印机打印</td>
+<td>可选（仅打印时需要）</td>
+</tr>
+</tbody></table>
+<h3 id="用户选择与控制"><a href="#用户选择与控制" class="headerlink" title="用户选择与控制"></a>用户选择与控制</h3><ol>
+<li><strong>删除本地数据</strong>：在设备设置中清除应用数据，或直接卸载应用</li>
+<li><strong>限制分析数据收集</strong>：在设备设置中限制广告跟踪</li>
+<li><strong>管理权限</strong>：在设备设置中随时撤销应用权限</li>
+</ol>
+<h3 id="数据保留"><a href="#数据保留" class="headerlink" title="数据保留"></a>数据保留</h3><ul>
+<li><strong>本地数据</strong>：保留至您主动删除或卸载应用</li>
+<li><strong>分析数据</strong>：根据 Google Firebase 的数据保留政策处理（通常为 14 个月）</li>
+</ul>
+<h3 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h3><ul>
+<li>核心条码与打印机数据仅存储在本地，不经过网络传输</li>
+<li>使用 HTTPS 加密传输分析数据</li>
+<li>定期更新应用以修复安全漏洞</li>
+</ul>
+<h3 id="儿童隐私"><a href="#儿童隐私" class="headerlink" title="儿童隐私"></a>儿童隐私</h3><p>本应用不针对 13 岁以下的儿童设计，我们不会故意收集儿童的个人信息。如果您是家长或监护人，发现您的孩子向我们提供了个人信息，请与我们联系。</p>
+<h3 id="隐私政策的变更"><a href="#隐私政策的变更" class="headerlink" title="隐私政策的变更"></a>隐私政策的变更</h3><p>我们可能会不时更新本隐私政策。更新后的政策将在应用内或本页面发布，并更新”最后更新”日期。重大变更时，我们会通过应用内通知等方式告知您。继续使用本应用即表示您接受更新后的隐私政策。</p>
+<h3 id="联系我们"><a href="#联系我们" class="headerlink" title="联系我们"></a>联系我们</h3><p>如果您对本隐私政策有任何疑问、意见或请求，请通过以下方式联系我们：</p>
+<ul>
+<li><strong>电子邮箱</strong>：<a class="link"   href="mailto:&#99;&#111;&#x6e;&#116;&#97;&#99;&#116;&#x40;&#x64;&#x6f;&#x64;&#x6f;&#x72;&#x2e;&#97;&#x70;&#112;" >contact@dodor.app<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+<p>我们将在合理的时间内回复您的请求。</p>
+<h3 id="Google-Play-数据安全补充说明"><a href="#Google-Play-数据安全补充说明" class="headerlink" title="Google Play 数据安全补充说明"></a>Google Play 数据安全补充说明</h3><p>为便于填写 Google Play Console 的数据安全表单，以下是数据收集摘要：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>是否收集</th>
+<th>是否共享</th>
+<th>是否可选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>位置信息</td>
+<td>大致位置（国家级）</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>应用活动</td>
+<td>是</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>应用信息</td>
+<td>崩溃日志</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>设备标识符</td>
+<td>是（Android ID）</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>个人信息 &#x2F; 财务信息 &#x2F; 照片 &#x2F; 联系人 等</td>
+<td>否</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<ul>
+<li>数据在传输过程中加密</li>
+<li>用户可以要求删除数据</li>
+<li>不与第三方共享用户数据</li>
+</ul>
+<hr>
+<h2 id="繁體中文"><a href="#繁體中文" class="headerlink" title="繁體中文"></a>繁體中文</h2><p>最後更新：2026-09-16</p>
+<h3 id="引言-1"><a href="#引言-1" class="headerlink" title="引言"></a>引言</h3><p>歡迎使用多多條碼。我們非常重視您的私隱保護。本私隱政策說明我們如何收集、使用和保護您的資訊。使用本應用程式即表示您同意本私隱政策中所述的資料處理方式。</p>
+<h3 id="應用概述"><a href="#應用概述" class="headerlink" title="應用概述"></a>應用概述</h3><p>多多條碼是「多多收銀 DodorPos」的配套小工具：輸入或隨機生成一組數字、選擇條碼編碼方式，即可生成條碼並透過已綁定的藍牙打印機打印出來。本應用程式核心功能完全離線可用，不涉及收銀、商品、交易等業務概念。</p>
+<h3 id="資訊收集與使用"><a href="#資訊收集與使用" class="headerlink" title="資訊收集與使用"></a>資訊收集與使用</h3><h4 id="1-本機資料"><a href="#1-本機資料" class="headerlink" title="1. 本機資料"></a>1. 本機資料</h4><p>本應用程式會在您的裝置上儲存以下資料：</p>
+<table>
+<thead>
+<tr>
+<th>資料類型</th>
+<th>說明</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>條碼記錄</td>
+<td>條碼名稱、數字內容、編碼方式、建立時間</td>
+<td>條碼歷史記錄、重新打印</td>
+</tr>
+<tr>
+<td>打印機綁定資訊</td>
+<td>藍牙裝置名稱、MAC 位址、自訂別名、紙寬</td>
+<td>連接並透過已綁定打印機打印</td>
+</tr>
+</tbody></table>
+<p><strong>資料儲存說明</strong>：這些資料僅儲存在您的裝置本機，不會上傳到任何伺服器。當您解除安裝應用程式或清除應用程式資料時，這些資料將被永久刪除。</p>
+<h4 id="2-自動收集的資料"><a href="#2-自動收集的資料" class="headerlink" title="2. 自動收集的資料"></a>2. 自動收集的資料</h4><p>為了改善應用程式品質與用戶體驗，我們使用以下第三方分析服務：</p>
+<p><strong>Firebase Analytics（應用程式分析）</strong></p>
+<table>
+<thead>
+<tr>
+<th>收集的資料</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>應用程式使用統計</td>
+<td>了解功能使用情況以改善產品</td>
+</tr>
+<tr>
+<td>裝置資訊</td>
+<td>裝置型號、作業系統版本</td>
+</tr>
+<tr>
+<td>應用程式版本</td>
+<td>追蹤版本分佈</td>
+</tr>
+<tr>
+<td>約略位置</td>
+<td>國家&#x2F;地區層級（基於 IP 位址）</td>
+</tr>
+</tbody></table>
+<p><strong>Firebase Crashlytics（死機分析）</strong></p>
+<table>
+<thead>
+<tr>
+<th>收集的資料</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>死機紀錄</td>
+<td>辨識並修復應用程式問題</td>
+</tr>
+<tr>
+<td>死機堆疊追蹤</td>
+<td>定位程式碼問題</td>
+</tr>
+<tr>
+<td>裝置狀態資訊</td>
+<td>了解死機發生時的裝置環境</td>
+</tr>
+</tbody></table>
+<p><strong>說明</strong>：以上自動收集的資料均為匿名資料，不包含任何可直接識別您個人身分的資訊。</p>
+<h4 id="3-版本檢查請求"><a href="#3-版本檢查請求" class="headerlink" title="3. 版本檢查請求"></a>3. 版本檢查請求</h4><p>本應用程式會定期向我們的伺服器發送請求，擷取一份靜態設定檔，僅用於檢查是否有新版本可用。該請求不包含任何個人資訊或裝置識別資訊。</p>
+<h3 id="資料共享與揭露"><a href="#資料共享與揭露" class="headerlink" title="資料共享與揭露"></a>資料共享與揭露</h3><ul>
+<li>我們<strong>不會出售</strong>您的個人資料</li>
+<li>我們<strong>不會</strong>與第三方共享可識別個人身分的資訊</li>
+<li>Firebase 服務由 Google 提供，相關資料處理受 <a class="link"   target="_blank" rel="noopener" href="https://policies.google.com/privacy" >Google 私隱政策<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 約束</li>
+<li>我們可能在法律要求的情況下揭露資訊</li>
+</ul>
+<h3 id="應用程式權限"><a href="#應用程式權限" class="headerlink" title="應用程式權限"></a>應用程式權限</h3><p>本應用程式可能要求以下權限：</p>
+<table>
+<thead>
+<tr>
+<th>權限</th>
+<th>用途</th>
+<th>是否必需</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>藍牙（附近的裝置）</td>
+<td>連接並透過藍牙打印機打印</td>
+<td>選用（僅打印時需要）</td>
+</tr>
+</tbody></table>
+<h3 id="用戶選擇與控制"><a href="#用戶選擇與控制" class="headerlink" title="用戶選擇與控制"></a>用戶選擇與控制</h3><ol>
+<li><strong>刪除本機資料</strong>：在裝置設定中清除應用程式資料，或直接解除安裝應用程式</li>
+<li><strong>限制分析資料收集</strong>：在裝置設定中限制廣告追蹤</li>
+<li><strong>管理權限</strong>：在裝置設定中隨時撤銷應用程式權限</li>
+</ol>
+<h3 id="資料保留"><a href="#資料保留" class="headerlink" title="資料保留"></a>資料保留</h3><ul>
+<li><strong>本機資料</strong>：保留至您主動刪除或解除安裝應用程式</li>
+<li><strong>分析資料</strong>：依 Google Firebase 的資料保留政策處理（通常為 14 個月）</li>
+</ul>
+<h3 id="資料安全"><a href="#資料安全" class="headerlink" title="資料安全"></a>資料安全</h3><ul>
+<li>核心條碼與打印機資料僅儲存在本機，不經過網絡傳輸</li>
+<li>使用 HTTPS 加密傳輸分析資料</li>
+<li>定期更新應用程式以修復安全漏洞</li>
+</ul>
+<h3 id="兒童私隱"><a href="#兒童私隱" class="headerlink" title="兒童私隱"></a>兒童私隱</h3><p>本應用程式不針對 13 歲以下的兒童設計，我們不會故意收集兒童的個人資訊。如果您是家長或監護人，發現您的孩子向我們提供了個人資訊，請與我們聯絡。</p>
+<h3 id="私隱政策的變更"><a href="#私隱政策的變更" class="headerlink" title="私隱政策的變更"></a>私隱政策的變更</h3><p>我們可能會不時更新本私隱政策。更新後的政策將在應用程式內或本頁面發布，並更新「最後更新」日期。重大變更時，我們會透過應用程式內通知等方式告知您。繼續使用本應用程式即表示您接受更新後的私隱政策。</p>
+<h3 id="聯絡我們"><a href="#聯絡我們" class="headerlink" title="聯絡我們"></a>聯絡我們</h3><p>如果您對本私隱政策有任何疑問、意見或請求，請透過以下方式聯絡我們：</p>
+<ul>
+<li><strong>電子郵件</strong>：<a class="link"   href="mailto:&#99;&#x6f;&#x6e;&#x74;&#x61;&#99;&#116;&#x40;&#x64;&#111;&#x64;&#x6f;&#114;&#46;&#x61;&#x70;&#112;" >contact@dodor.app<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+<p>我們將在合理的時間內回覆您的請求。</p>
+<h3 id="Google-Play-資料安全補充說明"><a href="#Google-Play-資料安全補充說明" class="headerlink" title="Google Play 資料安全補充說明"></a>Google Play 資料安全補充說明</h3><p>為便於填寫 Google Play Console 的資料安全表單，以下是資料收集摘要：</p>
+<table>
+<thead>
+<tr>
+<th>資料類型</th>
+<th>是否收集</th>
+<th>是否共享</th>
+<th>是否選用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>位置資訊</td>
+<td>約略位置（國家級）</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>應用程式活動</td>
+<td>是</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>應用程式資訊</td>
+<td>死機紀錄</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>裝置識別碼</td>
+<td>是（Android ID）</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>個人資訊 &#x2F; 財務資訊 &#x2F; 照片 &#x2F; 聯絡人 等</td>
+<td>否</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<ul>
+<li>資料在傳輸過程中加密</li>
+<li>用戶可以要求刪除資料</li>
+<li>不與第三方共享用戶資料</li>
+</ul>
+<hr>
+<h2 id="日本語"><a href="#日本語" class="headerlink" title="日本語"></a>日本語</h2><p>最終更新：2026-09-16</p>
+<h3 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h3><p>ドドールバーコード（Dodor Barcode）をご利用いただきありがとうございます。私たちはお客様のプライバシー保護を重視しています。本プライバシーポリシーは、当社が情報をどのように収集・利用・保護するかを説明します。本アプリを利用することで、本ポリシーに記載のデータの取り扱いに同意したものとみなされます。</p>
+<h3 id="アプリについて"><a href="#アプリについて" class="headerlink" title="アプリについて"></a>アプリについて</h3><p>ドドールバーコードは「ドドールPOS」の相棒アプリです。数字を入力またはランダム生成し、バーコード形式を選ぶだけでバーコードを生成し、ペアリングした Bluetooth 感熱プリンターで印刷できます。主要機能はネット接続なしで利用でき、会計・商品管理・取引といった概念は一切含みません。</p>
+<h3 id="情報の収集と利用"><a href="#情報の収集と利用" class="headerlink" title="情報の収集と利用"></a>情報の収集と利用</h3><h4 id="1-ローカルデータ"><a href="#1-ローカルデータ" class="headerlink" title="1. ローカルデータ"></a>1. ローカルデータ</h4><p>本アプリは以下のデータを端末内に保存します：</p>
+<table>
+<thead>
+<tr>
+<th>データの種類</th>
+<th>説明</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>バーコード記録</td>
+<td>バーコード名、数字、バーコード形式、作成日時</td>
+<td>バーコード履歴、再印刷</td>
+</tr>
+<tr>
+<td>プリンターのペアリング情報</td>
+<td>Bluetooth デバイス名、MAC アドレス、任意の名称、用紙幅</td>
+<td>ペアリング済みプリンターへの接続と印刷</td>
+</tr>
+</tbody></table>
+<p><strong>データの保存について</strong>：これらのデータは端末内にのみ保存され、いかなるサーバーにもアップロードされません。アプリをアンインストールするか、アプリのデータを消去すると、これらのデータは完全に削除されます。</p>
+<h4 id="2-自動的に収集されるデータ"><a href="#2-自動的に収集されるデータ" class="headerlink" title="2. 自動的に収集されるデータ"></a>2. 自動的に収集されるデータ</h4><p>アプリの品質とユーザー体験を改善するため、以下のサードパーティ分析サービスを利用しています：</p>
+<p><strong>Firebase Analytics（アプリ分析）</strong></p>
+<table>
+<thead>
+<tr>
+<th>収集するデータ</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>アプリ利用状況</td>
+<td>機能の利用状況を把握し製品を改善する</td>
+</tr>
+<tr>
+<td>デバイス情報</td>
+<td>機種・OS バージョン</td>
+</tr>
+<tr>
+<td>アプリのバージョン</td>
+<td>バージョン分布の把握</td>
+</tr>
+<tr>
+<td>おおよその位置</td>
+<td>国／地域レベル（IP アドレスに基づく）</td>
+</tr>
+</tbody></table>
+<p><strong>Firebase Crashlytics（クラッシュ分析）</strong></p>
+<table>
+<thead>
+<tr>
+<th>収集するデータ</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>クラッシュログ</td>
+<td>不具合の特定と修正</td>
+</tr>
+<tr>
+<td>スタックトレース</td>
+<td>コードの問題の特定</td>
+</tr>
+<tr>
+<td>デバイス状態情報</td>
+<td>クラッシュ発生時の環境の把握</td>
+</tr>
+</tbody></table>
+<p><strong>注記</strong>：上記の自動収集データはすべて匿名であり、お客様個人を直接特定できる情報は含みません。</p>
+<h4 id="3-バージョン確認リクエスト"><a href="#3-バージョン確認リクエスト" class="headerlink" title="3. バージョン確認リクエスト"></a>3. バージョン確認リクエスト</h4><p>本アプリは新しいバージョンの有無を確認するためだけに、当社サーバーへ定期的にリクエストを送り、静的な設定ファイルを取得します。このリクエストには個人情報やデバイスを特定する情報は含まれません。</p>
+<h3 id="データの共有と開示"><a href="#データの共有と開示" class="headerlink" title="データの共有と開示"></a>データの共有と開示</h3><ul>
+<li>お客様の個人データを<strong>販売することはありません</strong></li>
+<li>個人を特定できる情報を第三者と<strong>共有することはありません</strong></li>
+<li>Firebase は Google が提供しており、関連するデータ処理は <a class="link"   target="_blank" rel="noopener" href="https://policies.google.com/privacy" >Google のプライバシーポリシー<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> に従います</li>
+<li>法律で要求される場合には情報を開示することがあります</li>
+</ul>
+<h3 id="アプリの権限"><a href="#アプリの権限" class="headerlink" title="アプリの権限"></a>アプリの権限</h3><p>本アプリは以下の権限を要求する場合があります：</p>
+<table>
+<thead>
+<tr>
+<th>権限</th>
+<th>目的</th>
+<th>必須かどうか</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bluetooth（付近のデバイス）</td>
+<td>Bluetooth プリンターへの接続と印刷</td>
+<td>任意（印刷時のみ必要）</td>
+</tr>
+</tbody></table>
+<h3 id="ユーザーの選択とコントロール"><a href="#ユーザーの選択とコントロール" class="headerlink" title="ユーザーの選択とコントロール"></a>ユーザーの選択とコントロール</h3><ol>
+<li><strong>ローカルデータの削除</strong>：端末の設定でアプリのデータを消去するか、アプリをアンインストールします</li>
+<li><strong>分析データ収集の制限</strong>：端末の設定で広告トラッキングを制限します</li>
+<li><strong>権限の管理</strong>：端末の設定でいつでもアプリの権限を取り消せます</li>
+</ol>
+<h3 id="データの保持"><a href="#データの保持" class="headerlink" title="データの保持"></a>データの保持</h3><ul>
+<li><strong>ローカルデータ</strong>：お客様が自ら削除するか、アプリをアンインストールするまで保持されます</li>
+<li><strong>分析データ</strong>：Google Firebase のデータ保持ポリシーに従って処理されます（通常 14 か月）</li>
+</ul>
+<h3 id="データセキュリティ"><a href="#データセキュリティ" class="headerlink" title="データセキュリティ"></a>データセキュリティ</h3><ul>
+<li>主要なバーコード・プリンターデータは端末内のみに保存され、ネットワークを介して送信されません</li>
+<li>分析データは HTTPS による暗号化で送信されます</li>
+<li>セキュリティ上の脆弱性を修正するため、アプリを定期的に更新します</li>
+</ul>
+<h3 id="子どものプライバシー"><a href="#子どものプライバシー" class="headerlink" title="子どものプライバシー"></a>子どものプライバシー</h3><p>本アプリは 13 歳未満の子どもを対象としておらず、子どもの個人情報を意図的に収集することはありません。保護者の方で、お子様が当社に個人情報を提供したことに気づいた場合は、ご連絡ください。</p>
+<h3 id="本ポリシーの変更"><a href="#本ポリシーの変更" class="headerlink" title="本ポリシーの変更"></a>本ポリシーの変更</h3><p>本プライバシーポリシーは随時更新されることがあります。更新後のポリシーはアプリ内または本ページに掲載し、「最終更新」日を更新します。重要な変更がある場合は、アプリ内通知などでお知らせします。アプリの利用を継続することで、更新後のポリシーに同意したものとみなされます。</p>
+<h3 id="お問い合わせ"><a href="#お問い合わせ" class="headerlink" title="お問い合わせ"></a>お問い合わせ</h3><p>本プライバシーポリシーに関するご質問・ご意見・ご要望は、以下までお問い合わせください：</p>
+<ul>
+<li><strong>メール</strong>：<a class="link"   href="mailto:&#x63;&#111;&#x6e;&#x74;&#97;&#x63;&#116;&#64;&#100;&#x6f;&#100;&#x6f;&#x72;&#46;&#97;&#112;&#x70;" >contact@dodor.app<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+<p>合理的な期間内にご返信いたします。</p>
+<h3 id="Google-Play-データセーフティ補足説明"><a href="#Google-Play-データセーフティ補足説明" class="headerlink" title="Google Play データセーフティ補足説明"></a>Google Play データセーフティ補足説明</h3><p>Google Play Console のデータセーフティ申告の参考として、データ収集の概要を示します：</p>
+<table>
+<thead>
+<tr>
+<th>データの種類</th>
+<th>収集</th>
+<th>共有</th>
+<th>任意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>位置情報</td>
+<td>おおよその位置（国レベル）</td>
+<td>いいえ</td>
+<td>いいえ</td>
+</tr>
+<tr>
+<td>アプリのアクティビティ</td>
+<td>はい</td>
+<td>いいえ</td>
+<td>いいえ</td>
+</tr>
+<tr>
+<td>アプリ情報</td>
+<td>クラッシュログ</td>
+<td>いいえ</td>
+<td>いいえ</td>
+</tr>
+<tr>
+<td>デバイス識別子</td>
+<td>はい（Android ID）</td>
+<td>いいえ</td>
+<td>いいえ</td>
+</tr>
+<tr>
+<td>個人情報 &#x2F; 財務情報 &#x2F; 写真 &#x2F; 連絡先 など</td>
+<td>いいえ</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<ul>
+<li>データは転送時に暗号化されます</li>
+<li>ユーザーはデータの削除を請求できます</li>
+<li>ユーザーデータを第三者と共有しません</li>
+</ul>
+
+	</div>
+
+	<div class="page-template-comments">
+		
+	</div>
+</div>
+
+<div class="paginator">
+	
+</div>
+  
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2026&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Wavky</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        13 posts in total
+                    </span>
+                    
+                        <span>
+                            27.6k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/libs/anime.min.js"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+</body>
+
+</html>
