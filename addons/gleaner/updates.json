@@ -6,6 +6,11 @@
           "version": "1.0.0",
           "update_link": "https://wavky.com/addons/gleaner/gleaner-1.0.0.xpi",
           "update_hash": "sha256:06f7da0d92f3be1c3e51727855c385836b3cf61b8cf0ddce1dd0d74afdc13947"
+        },
+        {
+          "version": "1.1.0",
+          "update_link": "https://wavky.com/addons/gleaner/gleaner-1.1.0.xpi",
+          "update_hash": "sha256:4839e447b338c300d5a232cf4bd34231ac0ee157aaf862aa0b7b965aac9b41b0"
         }
       ]
     }
