@@ -1,0 +1,13 @@
+{
+  "addons": {
+    "yuyi@wavky": {
+      "updates": [
+        {
+          "version": "1.0.0",
+          "update_link": "https://wavky.com/addons/yuyi/yuyi-1.0.0.xpi",
+          "update_hash": "sha256:ee6684df0004e7a695d3bfa7b1a11dff20f95deec2830bee65075a08f77b8766"
+        }
+      ]
+    }
+  }
+}
